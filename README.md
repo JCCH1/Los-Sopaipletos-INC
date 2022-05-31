@@ -26,8 +26,8 @@
     <img src="img/Logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Hiper Calculadora Mark II:
-Sopaipleto Edition</h3>
+<h3 align="center">Calcupleto HD Edition:
+Sopaipletos INC</h3>
 
   <p align="center">
     Repositorio del proyecto del graficador interactivo del grupo "Los Sopaipletos".
@@ -37,7 +37,7 @@ Sopaipleto Edition</h3>
   </p>
 </div>
 
-[![Watch the video](https://img.youtube.com/vi/0ohifiBu3Zs/maxresdefault.jpg)](https://youtu.be/0ohifiBu3Zs)
+[![Watch the video](https://img.youtube.com/watch?v=QlWn_CsdHlA/maxresdefault.jpg)](https://youtu.be/QlWn_CsdHlA)
 
 <!-- TABLE OF CONTENTS -->
 <details>
