@@ -98,7 +98,6 @@ Para la Unidad 2, se debe:
 
 ### Integrantes
 
-- Guillermo Bustamante
 - Robinson Galvez
 - Juan Machuca
 
@@ -119,7 +118,6 @@ _En construcción_
 <!-- CONTACT -->
 ## Contacto
 
-- Guillermo Bustamante - [Gbustarr](https://github.com/Gbustarr)
 - Robinson Galvez - [Neuromender](https://github.com/Neuromender)
 - Juan Machuca - [Juan Machuca](https://github.com/JCCH1)
 
