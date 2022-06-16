@@ -368,6 +368,18 @@ public class Logica {
                 s.setForma(forma);
                 lista_simbolos.add(s);
                 break;
+            case 21:
+                if (enPotencia) {
+                    forma = cs.raizPot(pivot_x, pivot_y);
+                } else {
+                    forma = cs.raiz(pivot_x, pivot_y);
+                }
+                s.setValor(21);
+                s.setTipo(2);
+                s.setColor(context.colorOp);
+                s.setForma(forma);
+                lista_simbolos.add(s);
+                break;
         }
         //Luego de insertar un simbolo, mueve el pivot hacia la derecha
         if (!enPotencia) {

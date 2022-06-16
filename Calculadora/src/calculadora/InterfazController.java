@@ -134,6 +134,8 @@ public class InterfazController implements Initializable {
     protected Label divisionEliminada;
     @FXML
     protected Label movimientosDeLista;
+    @FXML
+    protected Button Btn_raiz;
     /*
     @FXML
     protected Button Btn_moverDer;
@@ -271,6 +273,12 @@ public class InterfazController implements Initializable {
         }
 
     }
+
+    @FXML
+    protected void BotonRaiz_presionado() {
+        l.agregarSimbolo(gc, 21, lista_simbolos, Display);
+
+    }    
 
     @FXML
     protected void BotonDivision_presionado() {
@@ -426,6 +434,7 @@ public class InterfazController implements Initializable {
             Btn_Fact.setVisible(false);
             Btn_potencia.setVisible(false);
             Btn_Grado.setVisible(false);
+            Btn_raiz.setVisible(false);
             Btn_Cientifico.setText("Básico");
             fondoInterfaz.getStyleClass().clear();
             fondoInterfaz.getStyleClass().add("bodybg");
@@ -436,6 +445,7 @@ public class InterfazController implements Initializable {
             Btn_Cos.setVisible(true);
             Btn_Tan.setVisible(true);
             Btn_Grado.setVisible(true);
+            Btn_raiz.setVisible(true);
             Btn_Cientifico.setText("Científico");
             fondoInterfaz.getStyleClass().clear();
             fondoInterfaz.getStyleClass().add("bodybgC");

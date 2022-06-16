@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" pickOnBounds="false" prefHeight="693.0" prefWidth="527.0" style="-fx-background-color: rgba(0,0,0,0);" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculadora.InterfazController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" pickOnBounds="false" prefHeight="693.0" prefWidth="527.0" style="-fx-background-color: rgba(0,0,0,0);" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculadora.InterfazController">
    <children>
       <Group layoutX="58.0" layoutY="17.0">
          <children>
@@ -233,6 +233,11 @@
                      </font>
                   </Label>
                   <Button fx:id="Btn_Grado" blendMode="MULTIPLY" layoutX="427.0" layoutY="553.0" mnemonicParsing="false" onAction="#BotonGrado_presionado" prefHeight="51.0" prefWidth="57.0" text="°" visible="false">
+                     <font>
+                        <Font name="Consolas" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Btn_raiz" blendMode="MULTIPLY" layoutX="45.0" layoutY="584.0" mnemonicParsing="false" onAction="#BotonRaiz_presionado" prefHeight="51.0" prefWidth="58.0" text="√ " visible="false">
                      <font>
                         <Font name="Consolas" size="18.0" />
                      </font>

@@ -192,6 +192,19 @@ public class CoordenadasSimbolos {
         return dividir;
     }
 
+    double[] raiz(double x, double y) {
+        double[] raiz = {
+            x - 10, y - 40, x, y - 10, x, y - 10,
+            x, y - 40};
+        return raiz;
+    }
+    double[] raizPot(double x, double y) {
+        double[] raizPot = {x - 10, y - 40, x, y - 10, x, y - 10,
+            x, y - 40
+        };
+        return raizPot;
+    }
+    
     double[] factorial(double x, double y) {
         double[] factorial = {x - 7, y - 40, x - 7, y - 18,
             x - 7, y - 10, x - 7, y - 10,
