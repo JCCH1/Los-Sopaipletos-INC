@@ -121,7 +121,7 @@ _En construcción_
 - Robinson Galvez - [Neuromender](https://github.com/Neuromender)
 - Juan Machuca - [Juan Machuca](https://github.com/JCCH1)
 
-Enlace del Proyecto: [Enlace](https://github.com/Gbustarr/ProyectoProgramacion2022)
+Enlace del Proyecto: [Enlace](https://github.com/JCCH1/Los-Sopaipletos-INC)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
