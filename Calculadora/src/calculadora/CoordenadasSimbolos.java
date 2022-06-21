@@ -199,8 +199,8 @@ public class CoordenadasSimbolos {
         return raiz;
     }
     double[] raizPot(double x, double y) {
-        double[] raizPot = {x - 10, y - 40, x, y - 10, x, y - 10,
-            x, y - 40
+        double[] raizPot = {x-10,y-40,x-5,y-25,
+                     x-5,y-25, x-5,y-40
         };
         return raizPot;
     }
