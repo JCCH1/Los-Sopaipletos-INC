@@ -400,5 +400,11 @@ public class CoordenadasSimbolos {
 
         return grado;
     }
+    
+    double[] igual(double x, double y) {
+        double[] igual = {x - 5, y - 30, x, y - 30,
+            x - 5, y - 25, x, y - 25};
+        return igual;
+    }
 
 }

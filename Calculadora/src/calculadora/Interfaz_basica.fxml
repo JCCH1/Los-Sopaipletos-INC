@@ -95,7 +95,7 @@
                         <Font name="Consolas" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="Btn_igual" blendMode="MULTIPLY" layoutX="322.0" layoutY="633.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="57.0" text="=">
+                  <Button fx:id="Btn_igual" blendMode="MULTIPLY" layoutX="322.0" layoutY="633.0" mnemonicParsing="false" onAction="#BotonIgual_presionado" prefHeight="51.0" prefWidth="57.0" text="=">
                      <font>
                         <Font name="Consolas" size="20.0" />
                      </font>

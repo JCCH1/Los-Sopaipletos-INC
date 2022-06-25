@@ -31,7 +31,6 @@ import javafx.stage.StageStyle;
 /**
  * FXML Controller class
  *
- * @author Guillermo
  */
 public class InterfazController implements Initializable {
 
@@ -160,6 +159,9 @@ public class InterfazController implements Initializable {
 
     @FXML
     protected Button Btn_Fact;
+    
+    @FXML
+    protected Button Btn_igual;
 
     double espacio_acumulado = 0;
     ArrayList<Simbolo> lista_simbolos = new ArrayList();
@@ -647,7 +649,11 @@ public class InterfazController implements Initializable {
         colorOp = Color.web("#E56B20");
         fg.actualizarColores(gc, lista_simbolos, colorNum, colorOp, Display);
     }
-
+    @FXML
+    protected void BotonIgual_presionado() {
+        //l.agregarSimbolo(gc, 22, lista_simbolos, Display);
+        System.out.println(" ");
+    }
     /**
      * Initializes the controller class.
      */

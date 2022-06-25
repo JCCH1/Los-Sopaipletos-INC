@@ -64,12 +64,45 @@ public class Logica {
     public Logica(InterfazController context) {
         this.context = context;
     }
-
+    
+    /*
+    
+    PRUEBAS SUMA E IGUAL
+    
+    
+    protected void suma(String numero){
+        char[] cadena_div = numero.toCharArray();
+        String n = "";
+        String m = "";
+        for(int i = 0; i < cadena_div.length; i++){
+            if (Character.isDigit(cadena_div[i])){
+                n+=cadena_div[i];}
+            else{
+                m+= n;
+                n = " ";
+                i++;
+        }
+        }
+        int N = Integer.parseInt(n);
+        int M = Integer.parseInt(m);
+        
+        int X = N+M;
+        System.out.println("Suma: "+ X);
+    }
+    
+    public void ejecutaOperacion(int numOperacion, ArrayList<Simbolo> lista_simbolos){
+        String lista = " ";
+        for (int i = 0; i < lista_simbolos.size(); i++) {
+            Simbolo s = lista_simbolos.get(i);
+            lista += s;}
+        suma(lista);
+    }
+    */
     protected void agregarSimbolo(GraphicsContext gc, int nSimbolo,
         ArrayList<Simbolo> lista_simbolos,
         Canvas Display) {
         //updateTags();
-
+        int operacion = 0;
         if (context.lista_simbolos.isEmpty()) {
             simboloMasApartado.Ypos = pivot_y;
             simboloMasApartado.Xpos = pivot_x;
@@ -80,6 +113,7 @@ public class Logica {
         }
 
         System.out.println("En division:" + enDivision);
+        
         //Iniciación y declaración de un simbolo general
         Simbolo s = new Simbolo();
         s.setXpos(pivot_x);
@@ -232,6 +266,7 @@ public class Logica {
                 s.setColor(context.colorOp);
                 s.setForma(forma);
                 lista_simbolos.add(s);
+                operacion = 1;
                 break;
             case 11:
                 if (enPotencia) {
@@ -690,34 +725,28 @@ public class Logica {
         }
 
     }
-
-    protected void text_debugger(ArrayList<Simbolo> lista_simbolos) {
-        for (int i = 0; i < lista_simbolos.size(); i++) {
-            Simbolo s = lista_simbolos.get(i);
-            if (s.valor > 9) {
-                if (s.valor == 10) {
-                    System.out.print(" + ");
-
-                }
-                if (s.valor == 11) {
-                    System.out.print(" - ");
-                }
-                if (s.valor == 12) {
-                    System.out.print(" * ");
-                }
-                if (s.valor == 13) {
-                    System.out.print(" / ");
-                }
-            } else {
-                System.out.print(s.valor);
-            }
-
+    public int cambiaBinarios(String valor){
+        char[] cadena_div = valor.toCharArray();
+        String n = "";
+        for(int i = 0; i < cadena_div.length; i++){
+            if (Character.isDigit(cadena_div[i])){
+                n+=cadena_div[i];}
+                        }
+        int N = Integer.parseInt(n);
+        int B_Number = 0;
+        int cnt = 0;
+        while (N != 0) {
+            int rem = N % 2;
+            double c = Math.pow(10, cnt);
+            B_Number += rem * c;
+            N /= 2;
+            cnt++;
         }
-        System.out.println();
+
+        return B_Number;
     }
-
+    
     protected String listaATexto(ArrayList<Simbolo> lista_simbolos) {
-
         String string = "";
 
         for (int i = 0; i < lista_simbolos.size(); i++) {
@@ -774,12 +803,13 @@ public class Logica {
             } else {
                 System.out.print(s.valor);
                 string = string + s.valor;
+                
             }
 
         }
+        int numBinario = cambiaBinarios(string);
+        System.out.println("NumBinairo: " + numBinario);
         System.out.println();
-
         return string;
     }
-
 }
