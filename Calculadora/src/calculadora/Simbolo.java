@@ -17,12 +17,12 @@ public class Simbolo {
 
     double Xfactor = 1;//Tamaño
     double Yfactor = 1;
-    double Xpos;
+    double Xpos; //Posicion
     double Ypos;
-    double[] forma;
+    double[] forma; //?
     Color color = Color.GREEN;
     int tipo; //0 = numero, 1= operador, 2 = operador especial
-    int valor;
+    int valor; //valor del numero?
     int enDivision = 0;
     int longitudDivision = 0;
     int puntosControl = 0;

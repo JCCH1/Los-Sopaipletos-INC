@@ -725,26 +725,82 @@ public class Logica {
         }
 
     }
-    public int cambiaBinarios(String valor){
-        char[] cadena_div = valor.toCharArray();
-        String n = "";
-        for(int i = 0; i < cadena_div.length; i++){
-            if (Character.isDigit(cadena_div[i])){
-                n+=cadena_div[i];}
-                        }
-        int N = Integer.parseInt(n);
+    
+    protected ArrayList<Simbolo> binarioToDecimal(int numero){
+        ArrayList<Simbolo> lista_simbolosBinarios = new ArrayList();
         int B_Number = 0;
         int cnt = 0;
-        while (N != 0) {
-            int rem = N % 2;
+        while (numero != 0) {
+            int rem = numero % 2;
+            System.out.println("Rem: " + rem);
             double c = Math.pow(10, cnt);
+            System.out.println("c: " + c);
             B_Number += rem * c;
-            N /= 2;
+            System.out.println("B_number: " + B_Number);
+            numero /= 2;
+            System.out.println("Numero: " + numero);
+            System.out.println("Contador: " + cnt);
             cnt++;
         }
-
+        return lista_simbolosBinarios; 
+    }
+    
+    public int cambiaBinarios(ArrayList<Simbolo> lista_simbolos){
+        
+        String n = "";
+        for(int i = 0; i < lista_simbolos.size(); i++){
+            Simbolo s = lista_simbolos.get(i);
+            if (s.valor > 9 && s.valor != -1) {
+                if (s.valor == 10) {
+                    System.out.print(" + ");
+                }
+                if (s.valor == 11) {
+                    System.out.print(" - ");
+                }
+                if (s.valor == 12) {
+                    System.out.print(" * ");
+                }
+                if (s.valor == 13) {
+                    System.out.print(" / ");
+                }
+                if (s.valor == 14) {
+                    System.out.print(" Sin");
+                }
+                if (s.valor == 15) {
+                    System.out.print(" Cos");
+                }
+                if (s.valor == 16) {
+                    System.out.print(" Tan");
+                }
+                if (s.valor == 17) {
+                    System.out.print("(");
+                }
+                if (s.valor == 18) {
+                    System.out.print(")");
+                }
+                if (s.valor == 19) {
+                    System.out.print("!");
+                }
+                if (s.valor == 20) {
+                    System.out.print("°");
+                }
+                if (s.valor == 21) {
+                    System.out.print("√");
+                }
+            } else{
+                n+=s.valor;
+                
+            }                       
+        }
+        System.out.println();
+        System.out.println("String n: " + n);
+        int N = Integer.parseInt(n);
+        int B_Number = 0;
+        binarioToDecimal(N);
         return B_Number;
     }
+    
+    
     
     protected String listaATexto(ArrayList<Simbolo> lista_simbolos) {
         String string = "";
@@ -796,6 +852,10 @@ public class Logica {
                     System.out.print("°");
                     string = string + "°";
                 }
+                if (s.valor == 21) {
+                    System.out.print("√");
+                    string = string + "√";
+                }
 
             } else if (s.valor == -1) {
                 System.out.print("^");
@@ -807,9 +867,6 @@ public class Logica {
             }
 
         }
-        int numBinario = cambiaBinarios(string);
-        System.out.println("NumBinairo: " + numBinario);
-        System.out.println();
         return string;
     }
 }

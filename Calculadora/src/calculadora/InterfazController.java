@@ -89,12 +89,20 @@ public class InterfazController implements Initializable {
 
     @FXML
     protected Button Btn_Cientifico;
+    @FXML
+    protected Button Btn_Secuencia;
 
     @FXML
     protected TextField textoSalida;
 
     @FXML
+    protected TextArea Escribir;
+    
+    @FXML
     protected Button Btn_Panel;
+    
+    @FXML
+    protected Button Btn_Binario;
 
     @FXML
     protected TextArea textArea;
@@ -135,6 +143,8 @@ public class InterfazController implements Initializable {
     protected Label movimientosDeLista;
     @FXML
     protected Button Btn_raiz;
+    @FXML
+    protected Button Btn_Decimales;
     /*
     @FXML
     protected Button Btn_moverDer;
@@ -454,7 +464,37 @@ public class InterfazController implements Initializable {
         }
 
     }
+    @FXML
+    protected String inputTXT(){
+        String textoIngresado = Escribir.getText();
+        return textoIngresado;
+    }
+    
+    @FXML
+    protected void Boton_binarioPresionado(){
+        Btn_Decimales.setVisible(true);
+        l.cambiaBinarios(lista_simbolos);
+    }
+    
+    @FXML
+    protected void Boton_DecimalPresionado(){
+        Btn_Decimales.setVisible(false);
+    }
+    
+    @FXML
+    protected void BotonSecuencia_presionado() {
+        if (Escribir.isVisible() == true) {
+            Escribir.setVisible(false);
+            Btn_Secuencia.setText("Secuencia");
 
+        } else {
+            Escribir.setVisible(true);
+            Btn_Secuencia.setText("Hide Secuencia");
+            System.out.println(inputTXT());
+
+        }
+
+    }
     @FXML
     protected void Cerrar() {
         Platform.exit();
