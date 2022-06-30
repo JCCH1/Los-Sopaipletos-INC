@@ -57,7 +57,10 @@ public class InterfazController implements Initializable {
 
     @FXML
     protected Button Btn_8;
-
+    
+    @FXML
+    protected Button Btn_9;
+    
     @FXML
     protected Button Btn_resta;
 
@@ -105,6 +108,9 @@ public class InterfazController implements Initializable {
     protected Button Btn_Binario;
 
     @FXML
+    protected Button Btn_Maximizar;
+    
+    @FXML
     protected TextArea textArea;
 
     @FXML
@@ -145,6 +151,8 @@ public class InterfazController implements Initializable {
     protected Button Btn_raiz;
     @FXML
     protected Button Btn_Decimales;
+    @FXML
+    protected Button Btn_pAbierto;
     /*
     @FXML
     protected Button Btn_moverDer;
@@ -158,6 +166,7 @@ public class InterfazController implements Initializable {
 
     @FXML
     protected Button Btn_Grado;
+    
     protected InterfazController controller;
 
     @FXML
@@ -172,7 +181,16 @@ public class InterfazController implements Initializable {
     
     @FXML
     protected Button Btn_igual;
+    
+    @FXML
+    protected Button Btn_pCerrado;
+   
+    //@FXML
+    //protected Menubutton Btn_tamaño;
 
+    //@FXML
+    //protected MenuButton Btn_colores;
+    
     double espacio_acumulado = 0;
     ArrayList<Simbolo> lista_simbolos = new ArrayList();
 
@@ -435,7 +453,57 @@ public class InterfazController implements Initializable {
                 break;
         }
     }
+    @FXML
+    protected void BotonMaximizar_presionado() {
 
+        if (Btn_Maximizar.isVisible() == true) {
+            Btn_1.setVisible(false);
+            Btn_2.setVisible(false);
+            Btn_3.setVisible(false);
+            Btn_4.setVisible(false);
+            Btn_5.setVisible(false);
+            Btn_6.setVisible(false);
+            Btn_7.setVisible(false);
+            Btn_8.setVisible(false);
+            Btn_9.setVisible(false);
+            Btn_resta.setVisible(false);
+            Btn_suma.setVisible(false);
+            Btn_AC.setVisible(false);
+            Btn_pAbierto.setVisible(false);
+            Btn_pCerrado.setVisible(false);
+            Btn_multiplicar.setVisible(false);
+            Btn_dividir.setVisible(false);
+            Btn_Secuencia.setVisible(false);
+            Btn_0.setVisible(false);
+            Btn_Binario.setVisible(false);
+            Btn_igual.setVisible(false);
+            Btn_puntosControl.setVisible(false);
+            //Btn_colores..setVisible(false);
+            //Btn_tamaño.setVisible(false);
+            textoSalida.setVisible(false);
+            Btn_Cientifico.setVisible(false);
+            Btn_Sen.setVisible(false);
+            Btn_Cos.setVisible(false);
+            Btn_Tan.setVisible(false);
+            Btn_Fact.setVisible(false);
+            Btn_potencia.setVisible(false);
+            Btn_Grado.setVisible(false);
+            Btn_raiz.setVisible(false);
+            
+            
+            fondoInterfaz.getStyleClass().clear();
+            Btn_Maximizar.setText("🗖");
+
+        } else {
+            Btn_1.setVisible(true);
+
+            Btn_Maximizar.setText("_");
+            fondoInterfaz.getStyleClass().clear();
+            fondoInterfaz.getStyleClass().add("bodybg");
+        }
+
+    }
+    
     @FXML
     protected void BotonCientifico_presionado() {
 
