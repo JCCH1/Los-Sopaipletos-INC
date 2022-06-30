@@ -728,25 +728,38 @@ public class Logica {
     
     protected ArrayList<Simbolo> binarioToDecimal(int numero){
         ArrayList<Simbolo> lista_simbolosBinarios = new ArrayList();
+        Simbolo s = new Simbolo();
+        double[] forma;
         int B_Number = 0;
         int cnt = 0;
         while (numero != 0) {
             int rem = numero % 2;
-            System.out.println("Rem: " + rem);
             double c = Math.pow(10, cnt);
-            System.out.println("c: " + c);
             B_Number += rem * c;
-            System.out.println("B_number: " + B_Number);
+            if(B_Number == 1){
+                forma = cs.uno(pivot_x, pivot_y);
+                s.setValor(1);
+                s.setTipo(0);
+                s.setColor(context.colorNum);
+                s.setForma(forma);
+                lista_simbolosBinarios.add(s);
+            }
+            if(B_Number == 0){
+                forma = cs.cero(pivot_x, pivot_y);
+                s.setValor(0);
+                s.setTipo(0);
+                s.setColor(context.colorNum);
+                s.setForma(forma);
+                lista_simbolosBinarios.add(s);
+            }
             numero /= 2;
-            System.out.println("Numero: " + numero);
-            System.out.println("Contador: " + cnt);
             cnt++;
+            System.out.println("B_Number: " + B_Number);
         }
         return lista_simbolosBinarios; 
     }
     
-    public int cambiaBinarios(ArrayList<Simbolo> lista_simbolos){
-        
+    public ArrayList<Simbolo> cambiaBinarios(ArrayList<Simbolo> lista_simbolos){ 
         String n = "";
         for(int i = 0; i < lista_simbolos.size(); i++){
             Simbolo s = lista_simbolos.get(i);
@@ -795,9 +808,8 @@ public class Logica {
         System.out.println();
         System.out.println("String n: " + n);
         int N = Integer.parseInt(n);
-        int B_Number = 0;
-        binarioToDecimal(N);
-        return B_Number;
+        lista_simbolos = binarioToDecimal(N);
+        return lista_simbolos;
     }
     
     

@@ -472,13 +472,17 @@ public class InterfazController implements Initializable {
     
     @FXML
     protected void Boton_binarioPresionado(){
+        Btn_Binario.setVisible(false);
         Btn_Decimales.setVisible(true);
-        l.cambiaBinarios(lista_simbolos);
+        lista_simbolos = l.cambiaBinarios(lista_simbolos);
+        fg.limpiarCanvas(gc, Display);
+        fg.dibujarTodosLosSimbolos(gc, lista_simbolos);
     }
     
     @FXML
     protected void Boton_DecimalPresionado(){
         Btn_Decimales.setVisible(false);
+        Btn_Binario.setVisible(true);
     }
     
     @FXML
