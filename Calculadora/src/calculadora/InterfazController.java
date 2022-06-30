@@ -153,6 +153,8 @@ public class InterfazController implements Initializable {
     protected Button Btn_Decimales;
     @FXML
     protected Button Btn_pAbierto;
+    @FXML
+    protected Button Btn_arriba;
     /*
     @FXML
     protected Button Btn_moverDer;
@@ -489,6 +491,7 @@ public class InterfazController implements Initializable {
             Btn_potencia.setVisible(false);
             Btn_Grado.setVisible(false);
             Btn_raiz.setVisible(false);
+            Btn_arriba.setVisible(false);
             
             
             fondoInterfaz.getStyleClass().clear();
