@@ -124,7 +124,7 @@
                         <Font name="Consolas" size="15.0" />
                      </font>
                   </Button>
-                  <MenuButton layoutX="344.0" layoutY="401.0" mnemonicParsing="false" prefWidth="70.0" style="-fx-background-color: gold;" stylesheets="@style.css" text="Tamaño">
+                  <MenuButton layoutX="119.0" layoutY="377.0" mnemonicParsing="false" prefWidth="70.0" style="-fx-background-color: gold;" stylesheets="@style.css" text="Tamaño">
                      <items>
                         <Menu mnemonicParsing="false">
                            <graphic>
@@ -248,8 +248,8 @@
                   <Button blendMode="GREEN" layoutX="236.0" layoutY="635.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="preorden" />
                   <Button blendMode="MULTIPLY" layoutX="276.0" layoutY="594.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="77.0" text="Orden" />
                   <Button fx:id="Btn_Secuencia" layoutX="343.0" layoutY="373.0" mnemonicParsing="false" onAction="#BotonSecuencia_presionado" text="Secuencia" />
-                  <Button fx:id="Btn_Binario" layoutX="343.0" layoutY="401.0" mnemonicParsing="false" onAction="#Boton_binarioPresionado" prefWidth="70.0" text="Binario" />
-                  <Button fx:id="Btn_Decimales" layoutX="132.0" layoutY="388.0" mnemonicParsing="false" onAction="#Boton_DecimalPresionado" prefHeight="30.0" prefWidth="70.0" text="Decimal" visible="false" />
+                  <Button fx:id="Btn_Binario" layoutX="342.0" layoutY="400.0" mnemonicParsing="false" onAction="#Boton_binarioPresionado" prefWidth="70.0" text="Binario" />
+                  <Button fx:id="Btn_Decimales" layoutX="342.0" layoutY="401.0" mnemonicParsing="false" onAction="#Boton_DecimalPresionado" prefHeight="25.0" prefWidth="70.0" text="Decimal" visible="false" />
                </children>
             </AnchorPane>
             <Button fx:id="Btn_DEL" blendMode="HARD_LIGHT" disable="true" layoutX="220.0" layoutY="363.0" mnemonicParsing="false" onAction="#BotonDEL_presionado" prefHeight="51.0" prefWidth="57.0" text="DEL" visible="false">
