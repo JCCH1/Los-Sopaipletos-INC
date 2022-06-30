@@ -625,7 +625,6 @@ public class Logica {
 
     }
 
-
     protected void resetMovimientoLista() {
         if (context.lista_simbolos.get(context.lista_simbolos.size() - 1).getValor() == 18) {
             movimientosDeLista = 0;
@@ -726,27 +725,38 @@ public class Logica {
 
     }
     
-    protected ArrayList<Simbolo> binarioToDecimal(int numero){
-        ArrayList<Simbolo> lista_simbolosBinarios = new ArrayList();
-        int B_Number = 0;
-        int cnt = 0;
-        while (numero != 0) {
-            int rem = numero % 2;
-            System.out.println("Rem: " + rem);
-            double c = Math.pow(10, cnt);
-            System.out.println("c: " + c);
-            B_Number += rem * c;
-            System.out.println("B_number: " + B_Number);
-            numero /= 2;
-            System.out.println("Numero: " + numero);
-            System.out.println("Contador: " + cnt);
-            cnt++;
+    protected ArrayList<Simbolo> decimalAbinario(int numero, GraphicsContext gc,
+    ArrayList<Simbolo> lista_simbolos, Canvas Display){
+        resetEstado();
+        lista_simbolos.clear();
+        String number1 = Integer.toBinaryString(numero);
+        char[] digits1 = number1.toCharArray();
+        for(int i = 0; i < digits1.length; i++) {
+            String numAux = String.valueOf(digits1[i]);
+            int num = Integer.parseInt(numAux);
+            agregarSimbolo(gc,num, lista_simbolos, Display);
         }
-        return lista_simbolosBinarios; 
+        return lista_simbolos; 
+    }
+
+    protected ArrayList<Simbolo> binarioAdecimal(int numero, GraphicsContext gc,
+    ArrayList<Simbolo> lista_simbolos, Canvas Display){
+        resetEstado();
+        lista_simbolos.clear();
+        String num1 = String.valueOf(numero);
+        int decimal=Integer.parseInt(num1,2); 
+        String num2 = String.valueOf(decimal);
+        char[] digits1 = num2.toCharArray();
+        for(int i = 0; i < digits1.length; i++) {
+            String numAux = String.valueOf(digits1[i]);
+            int num = Integer.parseInt(numAux);
+            agregarSimbolo(gc,num, lista_simbolos, Display);
+        }
+        return lista_simbolos; 
     }
     
-    public int cambiaBinarios(ArrayList<Simbolo> lista_simbolos){
-        
+    public ArrayList<Simbolo> cambiaBinarios(ArrayList<Simbolo> lista_simbolos, GraphicsContext gc,
+    Canvas Display){
         String n = "";
         for(int i = 0; i < lista_simbolos.size(); i++){
             Simbolo s = lista_simbolos.get(i);
@@ -792,15 +802,62 @@ public class Logica {
                 
             }                       
         }
-        System.out.println();
-        System.out.println("String n: " + n);
         int N = Integer.parseInt(n);
-        int B_Number = 0;
-        binarioToDecimal(N);
-        return B_Number;
+        lista_simbolos = decimalAbinario(N,gc,lista_simbolos,Display);
+        return lista_simbolos;
     }
     
-    
+    public ArrayList<Simbolo> cambiaDecimales(ArrayList<Simbolo> lista_simbolos, GraphicsContext gc,
+    Canvas Display){
+        String n = "";
+        for(int i = 0; i < lista_simbolos.size(); i++){
+            Simbolo s = lista_simbolos.get(i);
+            if (s.valor > 9 && s.valor != -1) {
+                if (s.valor == 10) {
+                    System.out.print(" + ");
+                }
+                if (s.valor == 11) {
+                    System.out.print(" - ");
+                }
+                if (s.valor == 12) {
+                    System.out.print(" * ");
+                }
+                if (s.valor == 13) {
+                    System.out.print(" / ");
+                }
+                if (s.valor == 14) {
+                    System.out.print(" Sin");
+                }
+                if (s.valor == 15) {
+                    System.out.print(" Cos");
+                }
+                if (s.valor == 16) {
+                    System.out.print(" Tan");
+                }
+                if (s.valor == 17) {
+                    System.out.print("(");
+                }
+                if (s.valor == 18) {
+                    System.out.print(")");
+                }
+                if (s.valor == 19) {
+                    System.out.print("!");
+                }
+                if (s.valor == 20) {
+                    System.out.print("°");
+                }
+                if (s.valor == 21) {
+                    System.out.print("√");
+                }
+            } else{
+                n+=s.valor;
+                
+            }                       
+        }
+        int N = Integer.parseInt(n);
+        lista_simbolos = binarioAdecimal(N,gc,lista_simbolos,Display);
+        return lista_simbolos;
+    }
     
     protected String listaATexto(ArrayList<Simbolo> lista_simbolos) {
         String string = "";
@@ -865,6 +922,105 @@ public class Logica {
                 string = string + s.valor;
                 
             }
+
+        }
+        return string;
+    }
+
+    protected String AgregarNumeros(String numerosTXT, ArrayList<Simbolo> lista_simbolos, GraphicsContext gc, Canvas Display) {
+        String string = "";
+        char[] digits1 = numerosTXT.toCharArray();
+        for(int i = 0; i < digits1.length; i++) {
+            String caracter = String.valueOf(digits1[i]);
+            System.out.println("carac: " + caracter);
+            if (caracter.equals("+")) {
+                agregarSimbolo(gc,10, lista_simbolos, Display);
+                string = string + " + ";
+            }
+            if (caracter.equals("-")) {
+                agregarSimbolo(gc,11, lista_simbolos, Display);
+                string = string + " - ";
+            }
+            if (caracter.equals("*")) {
+                agregarSimbolo(gc,12, lista_simbolos, Display);
+                string = string + " * ";
+            }
+            if (caracter.equals("/")) {
+                agregarSimbolo(gc,13, lista_simbolos, Display);
+                string = string + " / ";
+            }
+            if (caracter.equals("Sin")) {
+                agregarSimbolo(gc,14, lista_simbolos, Display);
+                string = string + " Sin";
+            }
+            if (caracter.equals("Cos")) {
+                agregarSimbolo(gc,15, lista_simbolos, Display);
+                string = string + " Cos ";
+            }
+            if (caracter.equals("Tan")) {
+                agregarSimbolo(gc,16, lista_simbolos, Display);
+                string = string + " Tan";
+            }
+            if (caracter.equals("(")) {
+                agregarSimbolo(gc,17, lista_simbolos, Display);
+                string = string + "(";
+            }
+            if (caracter.equals(")")) {
+                agregarSimbolo(gc,18, lista_simbolos, Display);
+                string = string + ")";
+            }
+            if (caracter.equals("!")) {
+                agregarSimbolo(gc,19, lista_simbolos, Display);
+                string = string + "!";
+            }
+            if (caracter.equals("°")) {
+                agregarSimbolo(gc,20, lista_simbolos, Display);
+                string = string + "°";
+            }
+            if (caracter.equals("√")) {
+                agregarSimbolo(gc,21, lista_simbolos, Display);
+                string = string + "√";
+            }
+
+            if (caracter.equals("^")) {
+                agregarSimbolo(gc,-1, lista_simbolos, Display);
+                string = string + "^";}
+            
+            if (caracter.equals("0")) {
+                agregarSimbolo(gc,0, lista_simbolos, Display);
+            }
+            if (caracter.equals("1")) {
+                agregarSimbolo(gc,1, lista_simbolos, Display);
+            }
+            if (caracter.equals("2")) {
+                agregarSimbolo(gc,2, lista_simbolos, Display);
+            }
+            if (caracter.equals("3")) {
+                agregarSimbolo(gc,3, lista_simbolos, Display);
+            }
+            if (caracter.equals("4")) {
+                agregarSimbolo(gc,4, lista_simbolos, Display);
+            }
+            if (caracter.equals("5")) {
+                agregarSimbolo(gc,5, lista_simbolos, Display);
+            }
+            if (caracter.equals("6")) {
+                agregarSimbolo(gc,6, lista_simbolos, Display);
+            }
+            if (caracter.equals("7")) {
+                agregarSimbolo(gc,7, lista_simbolos, Display);
+            }
+            if (caracter.equals("8")) {
+                agregarSimbolo(gc,8, lista_simbolos, Display);
+            }
+            if (caracter.equals("9")) {
+                agregarSimbolo(gc,9, lista_simbolos, Display);
+            }
+            
+            System.out.print(caracter);
+            string = string + caracter;
+                
+            
 
         }
         return string;
