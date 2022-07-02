@@ -190,9 +190,19 @@ public class InterfazController implements Initializable {
     //@FXML
     //protected Menubutton Btn_tamaño;
 
-    //@FXML
-    //protected MenuButton Btn_colores;
-    
+    @FXML
+    protected Button botonPrueba;
+    @FXML
+    protected Button botonPrueba2;
+
+    @FXML
+    protected AnchorPane fondoInterfaz1;
+
+    @FXML
+    protected Canvas Display1;
+
+
+
     double espacio_acumulado = 0;
     ArrayList<Simbolo> lista_simbolos = new ArrayList();
 
@@ -213,6 +223,33 @@ public class InterfazController implements Initializable {
     //Para el cambio de fondo
     @FXML
     AnchorPane fondoInterfaz;
+    
+    Calculadora c = new Calculadora();
+    @FXML
+    protected void BotonPrueba() {
+        botonPrueba.setVisible(false);
+        botonPrueba2.setVisible(true);
+        Stage stage = (Stage) fondoInterfaz .getScene().getWindow();
+        if(stage.isMaximized() == true){
+            double ancho = stage.getWidth();
+            double largo = stage.getHeight();
+            Display.setWidth(ancho);
+            Display.setHeight(largo-500);
+        }
+        fg.limpiarCanvas(gc, Display);
+        l.cambiarTamano(1.75);
+        fg.dibujarTodosLosSimbolos(gc, lista_simbolos); 
+        
+    }
+
+    @FXML
+    protected void BotonPrueba2() {
+        botonPrueba2.setVisible(false);
+        botonPrueba.setVisible(true);
+    }
+
+
+
 
     @FXML
     protected void Boton0_presionado() {
@@ -545,7 +582,7 @@ public class InterfazController implements Initializable {
     protected void Boton_binarioPresionado(){
         Btn_Binario.setVisible(false);
         Btn_Decimales.setVisible(true);
-        lista_simbolos = l.cambiaBinarios(lista_simbolos);
+        l.cambiaBinarios(lista_simbolos,gc,Display);
         fg.limpiarCanvas(gc, Display);
         fg.dibujarTodosLosSimbolos(gc, lista_simbolos);
     }
@@ -553,7 +590,9 @@ public class InterfazController implements Initializable {
     @FXML
     protected void Boton_DecimalPresionado(){
         Btn_Decimales.setVisible(false);
-        Btn_Binario.setVisible(true);
+        l.cambiaDecimales(lista_simbolos,gc,Display);
+        fg.limpiarCanvas(gc, Display);
+        fg.dibujarTodosLosSimbolos(gc, lista_simbolos);
     }
     
     @FXML
@@ -561,11 +600,13 @@ public class InterfazController implements Initializable {
         if (Escribir.isVisible() == true) {
             Escribir.setVisible(false);
             Btn_Secuencia.setText("Secuencia");
+            l.AgregarNumeros(inputTXT(), lista_simbolos, gc, Display);
 
         } else {
             Escribir.setVisible(true);
             Btn_Secuencia.setText("Hide Secuencia");
             System.out.println(inputTXT());
+            l.AgregarNumeros(inputTXT(), lista_simbolos, gc, Display); 
 
         }
 

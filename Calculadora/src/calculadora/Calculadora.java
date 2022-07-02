@@ -28,7 +28,7 @@ public class Calculadora extends Application {
         AnchorPane root = FXMLLoader.load(getClass().getResource("Interfaz_basica.fxml"));
 
         Scene scene = new Scene(root);
-        stage.initStyle(StageStyle.TRANSPARENT);
+        //stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
 
         //Para el movimiento de el programa mediante el mouse
@@ -44,6 +44,7 @@ public class Calculadora extends Application {
         
         stage.setScene(scene);
         stage.getIcons().add(new Image("calculadora/img/Logo.png"));
+        stage.setTitle("CALCUPLETO");
         stage.show();
     }
 

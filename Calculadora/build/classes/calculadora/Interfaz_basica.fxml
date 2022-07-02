@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Group?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -15,29 +14,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onDragDetected="#Boton_DecimalPresionado" pickOnBounds="false" prefHeight="693.0" prefWidth="527.0" style="-fx-background-color: rgba(0,0,0,0);" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculadora.InterfazController">
+<AnchorPane id="AnchorPane" pickOnBounds="false" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculadora.InterfazController">
    <children>
-      <Group layoutX="58.0" layoutY="17.0">
+      <AnchorPane fx:id="fondoInterfaz" centerShape="false" layoutX="60.0" layoutY="33.0" prefHeight="694.0" prefWidth="520.0">
          <children>
-            <Button fx:id="Btn_DEL" blendMode="HARD_LIGHT" disable="true" layoutX="220.0" layoutY="363.0" mnemonicParsing="false" onAction="#BotonDEL_presionado" prefHeight="51.0" prefWidth="57.0" text="DEL" visible="false">
-               <font>
-                  <Font name="Consolas" size="16.0" />
-               </font>
-            </Button>
-            <Label fx:id="indiceUltimaDivision" layoutX="63.0" layoutY="76.0" text="Label" visible="false" />
-            <Label fx:id="denominadorMenor" layoutX="63.0" layoutY="93.0" text="Label" visible="false" />
-            <Label fx:id="indicesNumeradores" layoutX="63.0" layoutY="110.0" text="Label" visible="false" />
-            <Label fx:id="indicesDenominadores" layoutX="63.0" layoutY="127.0" text="Label" visible="false" />
-            <Label fx:id="indicesDivisionCombinada" layoutX="63.0" layoutY="144.0" text="Label" visible="false" />
-            <Label fx:id="anchoDivision" layoutX="63.0" layoutY="161.0" text="Label" visible="false" />
-            <Label fx:id="anchoDivisionAnterior" layoutX="63.0" layoutY="178.0" text="Label" visible="false" />
-            <Label fx:id="movimientosDeLista" layoutX="233.0" layoutY="55.0" text="Label" visible="false" />
-         </children>
-      </Group>
-      <TextArea fx:id="Escribir" layoutX="580.0" layoutY="423.0" prefHeight="85.0" prefWidth="226.0" style="-fx-background-color: gold;" visible="false" />
-      <AnchorPane fx:id="fondoInterfaz" layoutX="216.0" layoutY="17.0" prefHeight="694.0" prefWidth="520.0" styleClass="bodybg" stylesheets="@style.css">
-         <children>
-            <Button fx:id="Btn_91" layoutX="436.0" layoutY="7.0" mnemonicParsing="false" onAction="#Cerrar" prefHeight="33.0" prefWidth="31.0" style="-fx-background-color: red;" stylesheets="@style.css" text="X" textFill="WHITE">
+            <Canvas fx:id="Display" height="250.0" layoutX="90.0" layoutY="59.0" width="340.0" />
+            <Button fx:id="Btn_91" layoutX="61.0" layoutY="7.0" mnemonicParsing="false" onAction="#Cerrar" prefHeight="33.0" prefWidth="31.0" style="-fx-background-color: red;" stylesheets="@style.css" text="X" textFill="WHITE">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -140,7 +122,7 @@
                   <Font name="Consolas" size="15.0" />
                </font>
             </Button>
-            <MenuButton fx:id="Btn_tamaño" layoutX="235.0" layoutY="344.0" mnemonicParsing="false" style="-fx-background-color: gold;" stylesheets="@style.css" text="Tamaño">
+            <MenuButton layoutX="235.0" layoutY="344.0" mnemonicParsing="false" style="-fx-background-color: gold;" stylesheets="@style.css" text="Tamaño">
                <items>
                   <Menu mnemonicParsing="false">
                      <graphic>
@@ -149,7 +131,7 @@
                   </Menu>
                </items>
             </MenuButton>
-            <MenuButton fx:id="Btn_colores" layoutX="153.0" layoutY="343.0" mnemonicParsing="false" style="-fx-background-color: gold;" stylesheets="@style.css" text="Colores">
+            <MenuButton layoutX="153.0" layoutY="343.0" mnemonicParsing="false" style="-fx-background-color: gold;" stylesheets="@style.css" text="Colores">
               <items>
                   <Menu mnemonicParsing="false" text="Numeros">
                     <items>
@@ -218,7 +200,6 @@
                </font>
             </Button>
             <Label fx:id="divisionEliminada" layoutX="285.0" layoutY="59.0" text="Label" visible="false" />
-            <Canvas fx:id="Display" height="250.0" layoutX="90.0" layoutY="59.0" width="340.0" />
             <Button fx:id="Btn_derecha" blendMode="SRC_ATOP" layoutX="284.0" layoutY="385.0" mnemonicParsing="false" onAction="#BotonDerecha_presionado" prefHeight="21.0" prefWidth="28.0" style="-fx-background-color: lightblue;" text="&gt;">
                <font>
                   <Font size="10.0" />
@@ -259,16 +240,31 @@
                   <Font name="Consolas" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="inorden" blendMode="GREEN" layoutX="295.0" layoutY="641.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="58.0" text="inorden" visible="false" />
-            <Button fx:id="postorden" blendMode="GREEN" layoutX="167.0" layoutY="642.0" mnemonicParsing="false" text="postorden" visible="false" />
-            <Button fx:id="preorden" blendMode="GREEN" layoutX="237.0" layoutY="642.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" text="preorden" visible="false" />
-            <Button fx:id="orden" blendMode="MULTIPLY" layoutX="281.0" layoutY="597.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="75.0" text="Orden" visible="false" />
-            <Button fx:id="Btn_Secuencia" layoutX="330.0" layoutY="390.0" mnemonicParsing="false" onAction="#BotonSecuencia_presionado" text="Secuencia" />
-            <Button fx:id="Btn_Binario" layoutX="132.0" layoutY="387.0" mnemonicParsing="false" onAction="#Boton_binarioPresionado" prefHeight="30.0" prefWidth="70.0" text="Binario" />
-            <Button fx:id="Btn_Decimales" layoutX="132.0" layoutY="388.0" mnemonicParsing="false" onAction="#Boton_binarioPresionado" prefHeight="30.0" prefWidth="70.0" text="Decimal" visible="false" />
-            <Button fx:id="Btn_Maximizar" layoutX="375.0" layoutY="10.0" mnemonicParsing="false" onAction="#BotonMaximizar_presionado" prefHeight="27.0" prefWidth="50.0" text="🗖" />
-            <TextField fx:id="textoSalida" editable="false" focusTraversable="false" layoutX="121.0" layoutY="294.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-color: gold;" />
+            <Button blendMode="GREEN" layoutX="295.0" layoutY="641.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="58.0" text="inorden" />
+            <Button blendMode="GREEN" layoutX="167.0" layoutY="642.0" mnemonicParsing="false" text="postorden" />
+            <Button blendMode="GREEN" layoutX="237.0" layoutY="642.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" text="preorden" />
+            <Button blendMode="MULTIPLY" layoutX="281.0" layoutY="597.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="75.0" text="Orden" />
+            <Button fx:id="Btn_Secuencia" layoutX="347.0" layoutY="379.0" mnemonicParsing="false" onAction="#BotonSecuencia_presionado" text="Secuencia" />
+            <Button fx:id="Btn_Binario" layoutX="347.0" layoutY="410.0" mnemonicParsing="false" onAction="#Boton_binarioPresionado" prefHeight="30.0" prefWidth="70.0" text="Binario" />
+            <Button fx:id="Btn_Decimales" layoutX="347.0" layoutY="410.0" mnemonicParsing="false" onAction="#Boton_DecimalPresionado" prefHeight="30.0" prefWidth="70.0" text="Decimal" visible="false" />
+            <TextArea fx:id="Escribir" layoutX="364.0" layoutY="450.0" prefHeight="85.0" prefWidth="226.0" style="-fx-background-color: gold;" visible="false" />
+            <Button fx:id="botonPrueba" layoutX="94.0" layoutY="8.0" mnemonicParsing="false" onAction="#BotonPrueba" prefHeight="29.0" prefWidth="29.0" text="1" />
+            <Button fx:id="botonPrueba2" layoutX="94.0" layoutY="8.0" mnemonicParsing="false" onAction="#BotonPrueba2" prefHeight="29.0" prefWidth="29.0" text="2" visible="false" />
          </children>
       </AnchorPane>
+      <Button fx:id="Btn_DEL" blendMode="HARD_LIGHT" disable="true" layoutX="278.0" layoutY="380.0" mnemonicParsing="false" onAction="#BotonDEL_presionado" prefHeight="51.0" prefWidth="57.0" text="DEL" visible="false">
+         <font>
+            <Font name="Consolas" size="16.0" />
+         </font>
+      </Button>
+      <TextField fx:id="textoSalida" editable="false" focusTraversable="false" layoutX="118.0" layoutY="312.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-color: gold;" />
+      <Label fx:id="indiceUltimaDivision" layoutX="121.0" layoutY="93.0" text="Label" visible="false" />
+      <Label fx:id="denominadorMenor" layoutX="121.0" layoutY="110.0" text="Label" visible="false" />
+      <Label fx:id="indicesNumeradores" layoutX="121.0" layoutY="127.0" text="Label" visible="false" />
+      <Label fx:id="indicesDenominadores" layoutX="121.0" layoutY="144.0" text="Label" visible="false" />
+      <Label fx:id="indicesDivisionCombinada" layoutX="121.0" layoutY="161.0" text="Label" visible="false" />
+      <Label fx:id="anchoDivision" layoutX="121.0" layoutY="178.0" text="Label" visible="false" />
+      <Label fx:id="anchoDivisionAnterior" layoutX="121.0" layoutY="195.0" text="Label" visible="false" />
+      <Label fx:id="movimientosDeLista" layoutX="291.0" layoutY="72.0" text="Label" visible="false" />
    </children>
 </AnchorPane>

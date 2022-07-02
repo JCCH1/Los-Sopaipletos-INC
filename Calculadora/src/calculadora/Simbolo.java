@@ -71,6 +71,7 @@ public class Simbolo {
         }
         //System.out.println();
     }
+    
     protected void setBloqueParentesis(){
         this.bloqueParentesis = true;
     }
@@ -203,8 +204,6 @@ public class Simbolo {
         }
     }
     
-    
-
     protected void moverAbajo(double factor) {
         for (int i = 0; i < this.forma.length; i = i + 2) {
             this.forma[i + 1] = this.forma[i + 1] + (22 * factor); // Coordenada Y
