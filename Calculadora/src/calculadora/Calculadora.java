@@ -28,7 +28,7 @@ public class Calculadora extends Application {
         AnchorPane root = FXMLLoader.load(getClass().getResource("Interfaz_basica.fxml"));
 
         Scene scene = new Scene(root);
-        //stage.initStyle(StageStyle.TRANSPARENT);
+        stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
 
         //Para el movimiento de el programa mediante el mouse
@@ -48,7 +48,7 @@ public class Calculadora extends Application {
         stage.show();
     }
 
-    /**
+    /** 
      * @param args the command line arguments
      */
     public static void main(String[] args) {

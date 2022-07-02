@@ -98,10 +98,10 @@ public class Logica {
         suma(lista);
     }
     */
+
     protected void agregarSimbolo(GraphicsContext gc, int nSimbolo,
         ArrayList<Simbolo> lista_simbolos,
         Canvas Display) {
-        //updateTags();
         int operacion = 0;
         if (context.lista_simbolos.isEmpty()) {
             simboloMasApartado.Ypos = pivot_y;
@@ -435,12 +435,9 @@ public class Logica {
         dibujarPuntero();
 
         context.textoSalida.setText(listaATexto(lista_simbolos));
-
         if (panelAgregado == 1) {
             context.panelContext.setTextArea();
         }
-
-        //updateTags();
     }
 
     protected void dibujarPuntero() {
@@ -983,7 +980,7 @@ public class Logica {
             }
 
             if (caracter.equals("^")) {
-                agregarSimbolo(gc,-1, lista_simbolos, Display);
+                context.BotonPotencia_presionado();
                 string = string + "^";}
             
             if (caracter.equals("0")) {

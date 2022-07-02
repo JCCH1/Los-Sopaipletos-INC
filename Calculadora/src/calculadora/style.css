@@ -28,6 +28,12 @@ and open the template in the editor.
     -fx-background-repeat: no-repeat;
 }
 
+.bodybgF{
+    -fx-background-image: url("./img/fondo.png");;
+    -fx-background-repeat: repeat;
+    -fx-background-size: 200%;
+}
+
 .rojo{
     -fx-background-color: #CC0000;
     -fx-text-fill: #FFFFFF;
