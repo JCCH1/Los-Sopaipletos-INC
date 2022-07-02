@@ -206,7 +206,8 @@ public class InterfazController implements Initializable {
     //Para el cambio de fondo
     @FXML
     AnchorPane fondoInterfaz;
-
+    
+    Calculadora c = new Calculadora();
     @FXML
     protected void BotonPrueba() {
         botonPrueba.setVisible(false);
@@ -216,6 +217,7 @@ public class InterfazController implements Initializable {
         fondoInterfaz.setPrefSize(1600, 750);
         Display.setWidth(1000);
         Display.setHeight(650);
+        Stage stage = (Stage) fondoInterfaz .getScene().getWindow();
         fg.limpiarCanvas(gc, Display);
         l.cambiarTamano(1.75);
         fg.dibujarTodosLosSimbolos(gc, lista_simbolos); 
