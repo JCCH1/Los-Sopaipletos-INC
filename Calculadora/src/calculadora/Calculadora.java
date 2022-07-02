@@ -43,7 +43,7 @@ public class Calculadora extends Application {
         });
         
         stage.setScene(scene);
-        stage.getIcons().add(new Image("calculadora/img/logo3.png"));
+        stage.getIcons().add(new Image("calculadora/img/Logo.png"));
         stage.setTitle("CALCUPLETO");
         stage.show();
     }

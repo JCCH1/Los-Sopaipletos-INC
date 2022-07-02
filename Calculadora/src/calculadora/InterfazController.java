@@ -212,12 +212,13 @@ public class InterfazController implements Initializable {
     protected void BotonPrueba() {
         botonPrueba.setVisible(false);
         botonPrueba2.setVisible(true);
-        fondoInterfaz.getStyleClass().clear();
-        fondoInterfaz.getStyleClass().add("bodybgA");
-        fondoInterfaz.setPrefSize(1600, 750);
-        Display.setWidth(1000);
-        Display.setHeight(650);
         Stage stage = (Stage) fondoInterfaz .getScene().getWindow();
+        if(stage.isMaximized() == true){
+            double ancho = stage.getWidth();
+            double largo = stage.getHeight();
+            Display.setWidth(ancho);
+            Display.setHeight(largo-500);
+        }
         fg.limpiarCanvas(gc, Display);
         l.cambiarTamano(1.75);
         fg.dibujarTodosLosSimbolos(gc, lista_simbolos); 
@@ -228,16 +229,6 @@ public class InterfazController implements Initializable {
     protected void BotonPrueba2() {
         botonPrueba2.setVisible(false);
         botonPrueba.setVisible(true);
-        fondoInterfaz.getStyleClass().clear();
-        fondoInterfaz.getStyleClass().add("bodybg");
-        fondoInterfaz.setPrefSize(520, 694);
-        Display.setWidth(340);
-        Display.setHeight(250);
-        fg.limpiarCanvas(gc, Display);
-        l.cambiarTamano(1);
-        fg.dibujarTodosLosSimbolos(gc, lista_simbolos);
-
-
     }
 
 
