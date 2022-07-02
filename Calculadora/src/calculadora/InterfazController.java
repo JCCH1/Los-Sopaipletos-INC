@@ -212,7 +212,7 @@ public class InterfazController implements Initializable {
     Label botonInvisible;
     
     @FXML
-    protected void BotonPrueba() {
+    protected void maximizar() {
         Stage stage = (Stage) fondoInterfaz.getScene().getWindow();
         
         if(stage.isMaximized() == false){
@@ -224,7 +224,7 @@ public class InterfazController implements Initializable {
             botonesCalc.setVisible(false);
             botonesCalcOcultos.setDisable(false);
             botonesCalcOcultos.setVisible(true);
-            botonesCalcOcultos.setLayoutX(500);
+            botonesCalcOcultos.setLayoutX(600);
             botonesCalcOcultos.setLayoutY(largo-450);
             barra.setLayoutX(ancho-90);
             botonInvisible.setLayoutX(ancho-206);
@@ -245,13 +245,10 @@ public class InterfazController implements Initializable {
     }
 
     @FXML
-    protected void BotonPrueba2() {
+    protected void minimizar() {
         Stage stage = (Stage) fondoInterfaz.getScene().getWindow();
         stage.setIconified(true);
     }
-
-
-
 
     @FXML
     protected void Boton0_presionado() {
@@ -456,7 +453,8 @@ public class InterfazController implements Initializable {
 
     @FXML
     protected void BotonCientifico_presionado() {
-
+        Stage stage = (Stage) fondoInterfaz.getScene().getWindow();
+        double ancho = stage.getWidth();
         if (Btn_Sen.isVisible() == true) {
             Btn_Sen.setVisible(false);
             Btn_Cos.setVisible(false);
@@ -466,8 +464,11 @@ public class InterfazController implements Initializable {
             Btn_Grado.setVisible(false);
             Btn_raiz.setVisible(false);
             Btn_Cientifico.setText("Básico");
-            fondoInterfaz.getStyleClass().clear();
-            fondoInterfaz.getStyleClass().add("bodybg");
+            botonesCalc.setLayoutX(201);
+            if(stage.isMaximized()== false){
+                Escribir.setLayoutX(417);
+            }
+            
         } else {
             Btn_Sen.setVisible(true);
             Btn_Fact.setVisible(true);
@@ -477,8 +478,10 @@ public class InterfazController implements Initializable {
             Btn_Grado.setVisible(true);
             Btn_raiz.setVisible(true);
             Btn_Cientifico.setText("Científico");
-            fondoInterfaz.getStyleClass().clear();
-            fondoInterfaz.getStyleClass().add("bodybgC");
+            botonesCalc.setLayoutX(ancho-250);
+            if(stage.isMaximized()== false){
+                Escribir.setLayoutX(160);
+            }
         }
 
     }
@@ -507,7 +510,11 @@ public class InterfazController implements Initializable {
     
     @FXML
     protected void BotonSecuencia_presionado() {
+        Stage stage = (Stage) fondoInterfaz.getScene().getWindow();
         if (Escribir.isVisible() == true) {
+            if(Btn_Sen.isVisible() == true){
+                Escribir.setLayoutX(160);
+            }
             Escribir.setVisible(false);
             Btn_Secuencia.setText("Secuencia");
             l.AgregarNumeros(inputTXT(), lista_simbolos, gc, Display);
@@ -515,6 +522,18 @@ public class InterfazController implements Initializable {
             
 
         } else {
+            if(stage.isMaximized() == false){
+                if(Btn_Sen.isVisible() == true){
+                    Escribir.setLayoutX(160);
+                }
+                else{
+                    Escribir.setLayoutX(417);
+                }
+            }
+            if(stage.isMaximized() == true){
+                Escribir.setLayoutX(200);
+            }
+            
             Escribir.setVisible(true);
             Btn_Secuencia.setText("Hide Secuencia");
              

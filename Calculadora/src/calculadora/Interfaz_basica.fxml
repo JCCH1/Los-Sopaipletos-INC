@@ -25,7 +25,7 @@
                   <Canvas fx:id="Display" height="250.0" mouseTransparent="true" pickOnBounds="true" width="550.0" />
                </children>
             </StackPane>
-            <AnchorPane id="Botones" fx:id="botonesCalc" layoutX="201.0" layoutY="391.0" visible="false">
+            <AnchorPane id="Botones" fx:id="botonesCalc" layoutX="201.0" layoutY="391.0">
                <children>
                   <Button fx:id="Btn_1" layoutY="157.0" mnemonicParsing="false" onAction="#Boton1_presionado" prefHeight="50.0" prefWidth="50.0" text="1">
                      <font>
@@ -247,15 +247,14 @@
                   </Button>
                </children>
             </AnchorPane>
-            <TextArea fx:id="Escribir" layoutX="154.0" layoutY="444.0" prefHeight="85.0" prefWidth="175.0" style="-fx-background-color: gold;" visible="false" />
             <HBox fx:id="barra" layoutX="500.0" prefHeight="30.0" prefWidth="90.0">
                <children>
-                  <Button fx:id="Btn_911" mnemonicParsing="false" onAction="#BotonPrueba2" prefHeight="30.0" prefWidth="30.0" text="□">
+                  <Button fx:id="Btn_911" mnemonicParsing="false" onAction="#minimizar" prefHeight="30.0" prefWidth="30.0" text="□">
                      <font>
                         <Font name="Arial" size="11.0" />
                      </font>
                   </Button>
-                  <Button fx:id="Btn_9111" mnemonicParsing="false" onAction="#BotonPrueba" prefHeight="30.0" prefWidth="30.0" text="❒">
+                  <Button fx:id="Btn_9111" mnemonicParsing="false" onAction="#maximizar" prefHeight="30.0" prefWidth="30.0" text="❒">
                      <font>
                         <Font name="Arial" size="11.0" />
                      </font>
@@ -268,7 +267,7 @@
                </children>
             </HBox>
             <TextField fx:id="textoSalida" editable="false" focusTraversable="false" layoutX="25.0" layoutY="291.0" prefHeight="25.0" prefWidth="550.0" style="-fx-background-color: white; -fx-border-color: black;" />
-            <AnchorPane id="BotonesOcultos" fx:id="botonesCalcOcultos" layoutX="140.0" layoutY="291.0" prefHeight="400.0" prefWidth="315.0">
+            <AnchorPane id="BotonesOcultos" fx:id="botonesCalcOcultos" layoutX="140.0" layoutY="291.0" prefHeight="400.0" prefWidth="315.0" visible="false">
                <children>
                   <Button fx:id="Btn_1" layoutY="245.0" mnemonicParsing="false" onAction="#Boton1_presionado" prefHeight="75.0" prefWidth="75.0" text="1">
                      <font>
@@ -368,6 +367,7 @@
                   <Font name="System Bold Italic" size="22.0" />
                </font>
             </Label>
+            <TextArea fx:id="Escribir" layoutX="418.0" layoutY="479.0" prefHeight="85.0" prefWidth="175.0" style="-fx-background-color: gold;" visible="false" />
          </children>
       </AnchorPane>
    </children>
