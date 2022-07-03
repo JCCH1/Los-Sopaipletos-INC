@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package calculadora;
 
 import java.util.ArrayList;
@@ -10,10 +5,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-/**
- *
- * @author guillermo
- */
 public class Logica {
 
     double pivot_x = 50;
@@ -65,39 +56,6 @@ public class Logica {
         this.context = context;
     }
     
-    /*
-    
-    PRUEBAS SUMA E IGUAL
-    
-    
-    protected void suma(String numero){
-        char[] cadena_div = numero.toCharArray();
-        String n = "";
-        String m = "";
-        for(int i = 0; i < cadena_div.length; i++){
-            if (Character.isDigit(cadena_div[i])){
-                n+=cadena_div[i];}
-            else{
-                m+= n;
-                n = " ";
-                i++;
-        }
-        }
-        int N = Integer.parseInt(n);
-        int M = Integer.parseInt(m);
-        
-        int X = N+M;
-        System.out.println("Suma: "+ X);
-    }
-    
-    public void ejecutaOperacion(int numOperacion, ArrayList<Simbolo> lista_simbolos){
-        String lista = " ";
-        for (int i = 0; i < lista_simbolos.size(); i++) {
-            Simbolo s = lista_simbolos.get(i);
-            lista += s;}
-        suma(lista);
-    }
-    */
 
     protected void agregarSimbolo(GraphicsContext gc, int nSimbolo,
         ArrayList<Simbolo> lista_simbolos,
@@ -858,7 +816,6 @@ public class Logica {
     
     protected String listaATexto(ArrayList<Simbolo> lista_simbolos) {
         String string = "";
-
         for (int i = 0; i < lista_simbolos.size(); i++) {
             Simbolo s = lista_simbolos.get(i);
             if (s.valor > 9 && s.valor != -1) {

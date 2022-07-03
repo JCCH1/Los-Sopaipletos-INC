@@ -20,6 +20,70 @@
    <children>
       <AnchorPane fx:id="fondoInterfaz" cacheShape="false" centerShape="false" layoutY="3.0" prefHeight="700.0" prefWidth="600.0" scaleShape="false" style="-fx-border-color: white;" styleClass="bodybgF" stylesheets="@style.css">
          <children>
+            <AnchorPane id="Otros botones" layoutX="25.0" layoutY="319.0">
+               <children>
+                  <Button fx:id="Btn_Cientifico" layoutX="480.0" mnemonicParsing="false" onAction="#BotonCientifico_presionado" prefHeight="30.0" prefWidth="70.0" text="Baśico">
+                     <font>
+                        <Font name="Consolas" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Btn_puntosControl" layoutX="87.0" mnemonicParsing="false" onAction="#BotonPuntosControl_presionado" prefHeight="25.0" prefWidth="31.0" text="P">
+                     <font>
+                        <Font name="Consolas Bold" size="14.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Button>
+                  <MenuButton mnemonicParsing="false" prefHeight="25.0" stylesheets="@style.css" text="Tamaño">
+                     <items>
+                        <Menu mnemonicParsing="false">
+                           <graphic>
+                              <Slider fx:id="tamanoCaracteres" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" onMouseReleased="#Slider_presionado" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="3.0" />
+                           </graphic>
+                        </Menu>
+                     </items>
+                  </MenuButton>
+                  <MenuButton layoutY="26.0" mnemonicParsing="false" stylesheets="@style.css" text="Colores">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Numeros">
+                          <items>
+                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorNum_Azul" styleClass="azul" text="Azul">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="CN" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorNum_Cafe" styleClass="cafe" text="Café" toggleGroup="$CN" />
+                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorNum_Morado" styleClass="morado" text="Morado" toggleGroup="$CN" />
+                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorNum_Naranjo" styleClass="naranjo" text="Naranjo" toggleGroup="$CN" />
+                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorNum_Rojo" styleClass="rojo" text="Rojo" toggleGroup="$CN" />
+                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorNum_Verde" styleClass="verde" text="Verde" toggleGroup="$CN" />
+                          </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Operadores">
+                           <items>
+                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorOp_Azul" styleClass="azul" text="Azul">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="CO" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorOp_Cafe" styleClass="cafe" text="Café" toggleGroup="$CO" />
+                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorOp_Morado" styleClass="morado" text="Morado" toggleGroup="$CO" />
+                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorOp_Naranjo" styleClass="naranjo" text="Naranjo" toggleGroup="$CO" />
+                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorOp_Rojo" styleClass="rojo" text="Rojo" toggleGroup="$CO" />
+                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorOp_Verde" styleClass="verde" text="Verde" toggleGroup="$CO" />
+                           </items>
+                        </Menu>
+                    </items>
+                  </MenuButton>
+                  <Button layoutX="266.0" mnemonicParsing="false" prefHeight="30.0" text="inorden" />
+                  <Button layoutX="128.0" mnemonicParsing="false" prefHeight="30.0" text="postorden" />
+                  <Button layoutX="200.0" mnemonicParsing="false" prefHeight="30.0" text="preorden" />
+                  <Button fx:id="Btn_Secuencia" layoutX="403.0" mnemonicParsing="false" onAction="#BotonSecuencia_presionado" prefHeight="30.0" text="Secuencia" />
+                  <Button fx:id="Btn_Binario" layoutX="332.0" mnemonicParsing="false" onAction="#Boton_binarioPresionado" prefHeight="30.0" prefWidth="70.0" text="Binario" />
+                  <Button fx:id="Btn_Decimales" layoutX="332.0" mnemonicParsing="false" onAction="#Boton_DecimalPresionado" prefHeight="30.0" prefWidth="70.0" text="Decimal" visible="false" />
+               </children>
+            </AnchorPane>
             <StackPane layoutX="25.0" layoutY="37.0" style="-fx-background-color: white; -fx-border-color: black;">
                <children>
                   <Canvas fx:id="Display" height="250.0" mouseTransparent="true" pickOnBounds="true" width="550.0" />
@@ -118,70 +182,6 @@
                         <Font name="Consolas" size="14.0" />
                      </font>
                   </Button>
-               </children>
-            </AnchorPane>
-            <AnchorPane id="Otros botones" layoutX="25.0" layoutY="319.0">
-               <children>
-                  <Button fx:id="Btn_Cientifico" layoutX="480.0" mnemonicParsing="false" onAction="#BotonCientifico_presionado" prefHeight="30.0" prefWidth="70.0" text="Baśico">
-                     <font>
-                        <Font name="Consolas" size="11.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="Btn_puntosControl" layoutX="87.0" mnemonicParsing="false" onAction="#BotonPuntosControl_presionado" prefHeight="25.0" prefWidth="31.0" text="P">
-                     <font>
-                        <Font name="Consolas Bold" size="14.0" />
-                     </font>
-                     <effect>
-                        <Glow />
-                     </effect>
-                  </Button>
-                  <MenuButton mnemonicParsing="false" prefHeight="25.0" stylesheets="@style.css" text="Tamaño">
-                     <items>
-                        <Menu mnemonicParsing="false">
-                           <graphic>
-                              <Slider fx:id="tamanoCaracteres" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" onMouseReleased="#Slider_presionado" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="3.0" />
-                           </graphic>
-                        </Menu>
-                     </items>
-                  </MenuButton>
-                  <MenuButton layoutY="26.0" mnemonicParsing="false" stylesheets="@style.css" text="Colores">
-                    <items>
-                        <Menu mnemonicParsing="false" text="Numeros">
-                          <items>
-                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorNum_Azul" styleClass="azul" text="Azul">
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="CN" />
-                                 </toggleGroup>
-                              </RadioMenuItem>
-                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorNum_Cafe" styleClass="cafe" text="Café" toggleGroup="$CN" />
-                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorNum_Morado" styleClass="morado" text="Morado" toggleGroup="$CN" />
-                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorNum_Naranjo" styleClass="naranjo" text="Naranjo" toggleGroup="$CN" />
-                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorNum_Rojo" styleClass="rojo" text="Rojo" toggleGroup="$CN" />
-                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorNum_Verde" styleClass="verde" text="Verde" toggleGroup="$CN" />
-                          </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Operadores">
-                           <items>
-                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorOp_Azul" styleClass="azul" text="Azul">
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="CO" />
-                                 </toggleGroup>
-                              </RadioMenuItem>
-                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorOp_Cafe" styleClass="cafe" text="Café" toggleGroup="$CO" />
-                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorOp_Morado" styleClass="morado" text="Morado" toggleGroup="$CO" />
-                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorOp_Naranjo" styleClass="naranjo" text="Naranjo" toggleGroup="$CO" />
-                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorOp_Rojo" styleClass="rojo" text="Rojo" toggleGroup="$CO" />
-                              <RadioMenuItem mnemonicParsing="false" onAction="#BotonColorOp_Verde" styleClass="verde" text="Verde" toggleGroup="$CO" />
-                           </items>
-                        </Menu>
-                    </items>
-                  </MenuButton>
-                  <Button layoutX="266.0" mnemonicParsing="false" prefHeight="30.0" text="inorden" />
-                  <Button layoutX="128.0" mnemonicParsing="false" prefHeight="30.0" text="postorden" />
-                  <Button layoutX="200.0" mnemonicParsing="false" prefHeight="30.0" text="preorden" />
-                  <Button fx:id="Btn_Secuencia" layoutX="403.0" mnemonicParsing="false" onAction="#BotonSecuencia_presionado" prefHeight="30.0" text="Secuencia" />
-                  <Button fx:id="Btn_Binario" layoutX="332.0" mnemonicParsing="false" onAction="#Boton_binarioPresionado" prefHeight="30.0" prefWidth="70.0" text="Binario" />
-                  <Button fx:id="Btn_Decimales" layoutX="202.0" layoutY="91.0" mnemonicParsing="false" onAction="#Boton_DecimalPresionado" prefHeight="30.0" prefWidth="70.0" text="Decimal" visible="false" />
                </children>
             </AnchorPane>
             <AnchorPane id="botonesCientificos" fx:id="botonesCientificos" layoutX="33.0" layoutY="439.0">

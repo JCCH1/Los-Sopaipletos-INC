@@ -185,6 +185,7 @@ public class InterfazController implements Initializable {
     FuncionesGraficadoras fg = new FuncionesGraficadoras();
     FuncionesAuxiliares fa = new FuncionesAuxiliares();
     Interfaz_panelController panelContext;
+    Operaciones op = new Operaciones();
 
     //Para los colores de los numeros y operadores
     Color colorNum = Color.GREEN;
@@ -229,8 +230,10 @@ public class InterfazController implements Initializable {
             barra.setLayoutX(ancho-90);
             botonInvisible.setLayoutX(ancho-206);
             botonInvisible.setLayoutY(largo-35);
+            if(Btn_Sen.isVisible()==false){
+                Escribir.setLayoutX(417);
+            }
         }
-        
         else if(stage.isMaximized() == true){
             stage.setMaximized(false);
             double ancho = stage.getWidth();
@@ -240,8 +243,10 @@ public class InterfazController implements Initializable {
             botonesCalc.setVisible(true);
             botonesCalcOcultos.setDisable(true);
             botonesCalcOcultos.setVisible(false);
+            if(Btn_Sen.isVisible()==false){
+                Escribir.setLayoutX(417);
+            }
         }
-          
     }
 
     @FXML
@@ -325,6 +330,7 @@ public class InterfazController implements Initializable {
         if (l.bloqueadorOperadorMultiple(lista_simbolos) == 0) {
             l.agregarSimbolo(gc, 10, lista_simbolos, Display);
         }
+        op.suma(lista_simbolos);
     }
 
     @FXML
@@ -467,6 +473,7 @@ public class InterfazController implements Initializable {
             botonesCalc.setLayoutX(201);
             if(stage.isMaximized()== false){
                 Escribir.setLayoutX(417);
+                botonesCalc.setLayoutX(201);
             }
             
         } else {
@@ -533,7 +540,6 @@ public class InterfazController implements Initializable {
             if(stage.isMaximized() == true){
                 Escribir.setLayoutX(200);
             }
-            
             Escribir.setVisible(true);
             Btn_Secuencia.setText("Hide Secuencia");
              
