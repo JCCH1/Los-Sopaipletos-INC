@@ -243,9 +243,7 @@ public class InterfazController implements Initializable {
             botonesCalc.setVisible(true);
             botonesCalcOcultos.setDisable(true);
             botonesCalcOcultos.setVisible(false);
-            if(Btn_Sen.isVisible()==false){
-                Escribir.setLayoutX(417);
-            }
+            Escribir.setLayoutX(417);
         }
     }
 
@@ -330,7 +328,6 @@ public class InterfazController implements Initializable {
         if (l.bloqueadorOperadorMultiple(lista_simbolos) == 0) {
             l.agregarSimbolo(gc, 10, lista_simbolos, Display);
         }
-        op.suma(lista_simbolos);
     }
 
     @FXML
@@ -743,12 +740,9 @@ public class InterfazController implements Initializable {
     
     @FXML
     protected void BotonIgual_presionado() {
-        //l.agregarSimbolo(gc, 22, lista_simbolos, Display);
-        System.out.println(" ");
+        op.igual(lista_simbolos);
     }
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         gc = Display.getGraphicsContext2D();
