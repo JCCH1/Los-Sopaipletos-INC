@@ -255,57 +255,7 @@ public class InterfazController implements Initializable {
                 break;
         }
     }
-    @FXML
-    protected void BotonMaximizar_presionado() {
 
-        if (Btn_Maximizar.isVisible() == true) {
-            Btn_1.setVisible(false);
-            Btn_2.setVisible(false);
-            Btn_3.setVisible(false);
-            Btn_4.setVisible(false);
-            Btn_5.setVisible(false);
-            Btn_6.setVisible(false);
-            Btn_7.setVisible(false);
-            Btn_8.setVisible(false);
-            Btn_9.setVisible(false);
-            Btn_resta.setVisible(false);
-            Btn_suma.setVisible(false);
-            Btn_AC.setVisible(false);
-            Btn_pAbierto.setVisible(false);
-            Btn_pCerrado.setVisible(false);
-            Btn_multiplicar.setVisible(false);
-            Btn_dividir.setVisible(false);
-            Btn_Secuencia.setVisible(false);
-            Btn_0.setVisible(false);
-            Btn_Binario.setVisible(false);
-            Btn_igual.setVisible(false);
-            Btn_puntosControl.setVisible(false);
-            //Btn_colores..setVisible(false);
-            //Btn_tamaño.setVisible(false);
-            textoSalida.setVisible(false);
-            Btn_Cientifico.setVisible(false);
-            Btn_Sen.setVisible(false);
-            Btn_Cos.setVisible(false);
-            Btn_Tan.setVisible(false);
-            Btn_Fact.setVisible(false);
-            Btn_potencia.setVisible(false);
-            Btn_Grado.setVisible(false);
-            Btn_raiz.setVisible(false);
-            Btn_arriba.setVisible(false);
-            
-            
-            fondoInterfaz.getStyleClass().clear();
-            Btn_Maximizar.setText("🗖");
-
-        } else {
-            Btn_1.setVisible(true);
-
-            Btn_Maximizar.setText("_");
-            fondoInterfaz.getStyleClass().clear();
-            fondoInterfaz.getStyleClass().add("bodybg");
-        }
-
-    }
     
     @FXML
     protected void BotonMaximizar_presionado() {

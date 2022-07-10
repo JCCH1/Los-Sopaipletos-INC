@@ -1,23 +1,20 @@
-
-
-.bodybg{
-    -fx-background-image: url("./img/Background_image_sopaipletos.png");
-    -fx-background-color: rgba(0,0,0,0);
-    -fx-background-size: 527 693;
-    -fx-background-repeat: no-repeat;
-}
-.bodybgC{
-    -fx-background-image: url("./img/Background_image_sopaipletos_scientific.png");
-    -fx-background-color: rgba(0,0,0,0);
-    -fx-background-size: 527 693;
-    -fx-background-repeat: no-repeat;
-}
-
 .bodybgA{
-    -fx-background-image: url("./img/moradofondo.png");
+    -fx-background-image: url("./img/fondo.png");
     -fx-background-color: rgba(0,0,0,0);
-    -fx-background-size: 1400 750;
-    -fx-background-repeat: no-repeat;
+    -fx-background-size: 800 759;
+    -fx-background-repeat: repeat;
+}
+
+.name{
+    -fx-background-image: url("./img/nombre.png");
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-background-size: 200 27;
+}
+
+.nameGrande{
+    -fx-background-image: url("./img/nombre.png");
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-background-size: 400 54;
 }
 
 .rojo{
@@ -38,4 +35,16 @@
 }
 .morado{
     -fx-background-color: #540E64;
+}
+.shiny-orange {
+    -fx-background-color: 
+        linear-gradient(#ffd65b, #e68400),
+        linear-gradient(#ffef84, #f2ba44),
+        linear-gradient(#ffea6a, #efaa22),
+        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
 }
