@@ -19,16 +19,12 @@ public class division {
         if(l.enPotencia){
             moverNumeradoresHaciaArriba(1);
             fa.moverPivotADenominador(l);
-            fa.moverPivotDerechaPotencia(l);
             //fa.moverPivotDerechaPotencia(l);
-
-        
+            //fa.moverPivotDerechaPotencia(l);
         }else{
             moverNumeradoresHaciaArriba(2);
             fa.moverPivotADenominador(l);
-
-        }
-        
+        }     
     }
     
     protected void crearLineaDivision(Logica l,Simbolo s){

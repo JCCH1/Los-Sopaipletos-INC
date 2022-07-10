@@ -51,12 +51,12 @@ public class Logica {
     FuncionesGraficadoras fg = new FuncionesGraficadoras();
     InterfazController context;
     FuncionesAuxiliares fa = new FuncionesAuxiliares();
+    Operaciones op = new Operaciones();
 
     public Logica(InterfazController context) {
         this.context = context;
     }
     
-
     protected void agregarSimbolo(GraphicsContext gc, int nSimbolo,
         ArrayList<Simbolo> lista_simbolos,
         Canvas Display) {
@@ -389,6 +389,7 @@ public class Logica {
         // Funciones graficadoras
         //  Se borra el contenido del canvas para redibujar sobre ella.
         fg.limpiarCanvas(gc, Display);
+        System.out.println("Se limpia el canvas");
         fg.dibujarTodosLosSimbolos(gc, lista_simbolos);
         dibujarPuntero();
 
@@ -978,5 +979,64 @@ public class Logica {
 
         }
         return string;
+    }
+
+    protected ArrayList<Simbolo> igual (ArrayList<Simbolo> lista_simbolos, GraphicsContext gc, Canvas Display) {
+        System.out.println("Numeros en igual: ");
+        for(int i = 0; i < lista_simbolos.size(); i++){
+            System.out.println(lista_simbolos.get(i).valor + ",");
+        }
+        System.out.println("Fin numero en igual.");
+        int resultado = 0;
+        for (int i = 0; i < lista_simbolos.size(); i++) {
+            Simbolo s = lista_simbolos.get(i);
+            if (s.valor > 9 && s.valor != -1) {
+                if (s.valor == 10) {
+                    resultado = (int)op.suma(lista_simbolos,i,gc,Display);
+                    
+                    agregarSimbolo(gc, resultado, lista_simbolos, Display);
+                }
+                if (s.valor == 11) {
+                    break;
+                }
+                if (s.valor == 12) {
+                    break;
+                }
+                if (s.valor == 13) {
+                    break;
+                }
+                if (s.valor == 14) {
+                    break;
+                }
+                if (s.valor == 15) {
+                    break;
+                }
+                if (s.valor == 16) {
+                    break;
+                }
+                if (s.valor == 17) {
+                    break;
+                }
+                if (s.valor == 18) {
+                    break;
+                }
+                if (s.valor == 19) {
+                    break;
+                }
+                if (s.valor == 20) {
+                    break;
+                }
+                if (s.valor == 21) {
+                    break;
+                }
+
+            } else if (s.valor == -1) {
+                break;
+            } else {
+                System.out.print(" ");              
+            }
+        }
+        
+        return lista_simbolos;
     }
 }

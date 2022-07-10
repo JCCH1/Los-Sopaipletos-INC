@@ -5,7 +5,7 @@
  */
 package calculadora;
 
-import java.io.IOException;
+
 import java.net.URL;
 import java.rmi.activation.ActivationGroup;
 import java.util.ResourceBundle;
@@ -739,8 +739,8 @@ public class InterfazController implements Initializable {
     }
     
     @FXML
-    protected void BotonIgual_presionado() {
-        op.igual(lista_simbolos);
+    protected void BotonIgual_presionado() {  
+        lista_simbolos = l.igual(lista_simbolos, gc, Display);
     }
 
     @Override

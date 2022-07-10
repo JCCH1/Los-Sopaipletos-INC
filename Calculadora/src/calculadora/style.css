@@ -1,41 +1,20 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 06-04-2022, 20:03:59
-    Author     : Guillermo
-*/
-
-.bodybg{
-    -fx-background-image: url("./img/Background_image_sopaipletos.png");
-    -fx-background-color: rgba(0,0,0,0);
-    -fx-background-size: 527 693;
-    -fx-background-repeat: no-repeat;
-}
-.bodybgC{
-    -fx-background-image: url("./img/Background_image_sopaipletos_scientific.png");
-    -fx-background-color: rgba(0,0,0,0);
-    -fx-background-size: 527 693;
-    -fx-background-repeat: no-repeat;
-}
-
 .bodybgA{
-    -fx-background-image: url("./img/fondo2.png");
+    -fx-background-image: url("./img/fondo.png");
     -fx-background-color: rgba(0,0,0,0);
     -fx-background-size: 800 759;
     -fx-background-repeat: repeat;
 }
 
-.bodybgF{
-    -fx-background-image: url("./img/fondo.png");;
-    -fx-background-repeat: repeat;
-    -fx-background-size: 200%;
+.name{
+    -fx-background-image: url("./img/nombre.png");
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-background-size: 200 27;
 }
 
-.nombre{
-    -fx-background-image: url("./img/nombre.png");;
+.nameGrande{
+    -fx-background-image: url("./img/nombre.png");
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-background-size: 400 54;
 }
 
 .rojo{
@@ -56,4 +35,16 @@ and open the template in the editor.
 }
 .morado{
     -fx-background-color: #540E64;
+}
+.shiny-orange {
+    -fx-background-color: 
+        linear-gradient(#ffd65b, #e68400),
+        linear-gradient(#ffef84, #f2ba44),
+        linear-gradient(#ffea6a, #efaa22),
+        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
 }

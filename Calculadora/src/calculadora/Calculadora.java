@@ -1,27 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package calculadora;
 
-import java.io.IOException;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
 import javafx.stage.StageStyle;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.application.Application;
+import javafx.scene.layout.AnchorPane;  
 
-/**
- *
- * @author Guillermo
- */
 public class Calculadora extends Application {
 
-    private double x, y = 0;
+    private double posMousex, posMousey = 0;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -33,26 +24,21 @@ public class Calculadora extends Application {
 
         //Para el movimiento de el programa mediante el mouse
         root.setOnMousePressed(mouseEvent -> {
-            x = mouseEvent.getSceneX();
-            y = mouseEvent.getSceneY();
+            posMousex = mouseEvent.getSceneX();
+            posMousey = mouseEvent.getSceneY();
         });
 
         root.setOnMouseDragged(mouseEvent -> {
-            stage.setX(mouseEvent.getScreenX() - x);
-            stage.setY(mouseEvent.getScreenY() - y);
+            stage.setX(mouseEvent.getScreenX() - posMousex);
+            stage.setY(mouseEvent.getScreenY() - posMousey);
         });
         
         stage.setScene(scene);
         stage.getIcons().add(new Image("calculadora/img/Logo.png"));
-        stage.setTitle("CALCUPLETO");
         stage.show();
     }
 
-    /** 
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }
-
 }
