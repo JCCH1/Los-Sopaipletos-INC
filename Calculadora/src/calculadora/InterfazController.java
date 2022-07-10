@@ -1,26 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package calculadora;
 
-
 import java.net.URL;
-import java.rmi.activation.ActivationGroup;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import java.util.ArrayList;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -28,155 +16,46 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-/**
- * FXML Controller class
- *
- */
 public class InterfazController implements Initializable {
-
-    @FXML
-    protected Button Btn_1;
-
-    @FXML
-    protected Button Btn_2;
-
-    @FXML
-    protected Button Btn_3;
-
-    @FXML
-    protected Button Btn_4;
-
-    @FXML
-    protected Button Btn_5;
-
-    @FXML
-    protected Button Btn_6;
-
-    @FXML
-    protected Button Btn_7;
-
-    @FXML
-    protected Button Btn_8;
-
-    @FXML
-    protected Button Btn_resta;
-
-    @FXML
-    protected Button Btn_suma;
-
-    @FXML
-    protected Button Btn_0;
-
-    @FXML
-    protected Button Btn_multiplicar;
-
-    @FXML
-    protected Button Btn_dividir;
-
-    @FXML
-    protected Button Btn_potencia;
 
     @FXML
     protected Canvas Display;
     @FXML
-    protected Button Btn_AC;
-
-    @FXML
-    protected Button Btn_DEL;
-
-    @FXML
-    protected Button Btn_next;
-
-    @FXML
     protected Button Btn_Cientifico;
     @FXML
-    protected Button Btn_Secuencia;
-
+    protected Button Btn_CambiarBase;
     @FXML
     protected TextField textoSalida;
-
     @FXML
-    protected TextArea Escribir;
-    
-    @FXML
-    protected Button Btn_Panel;
-    
-    @FXML
-    protected Button Btn_Binario;
-
+    protected TextField Txt_Input;
     @FXML
     protected TextArea textArea;
-
-    @FXML
-    protected ColorPicker colorNumeros;
-
-    @FXML
-    protected ColorPicker colorOperadores;
-
     @FXML
     protected Slider tamanoCaracteres;
+    @FXML
+    protected Button Btn_Aux;
+    @FXML
+    protected HBox barra;
+    @FXML
+    protected AnchorPane botonesEstandar;
+    @FXML
+    protected AnchorPane botonesCientificos1;
+    @FXML
+    protected AnchorPane botonesCientificos2;
+    @FXML
+    protected AnchorPane flechas;
+    @FXML
+    protected AnchorPane otrosBotones;
+    @FXML
+    protected AnchorPane padreCanvas;
+    @FXML
+    protected AnchorPane nombre;
+    @FXML
+    protected TextField precedencia;
+    @FXML
+    AnchorPane fondoInterfaz;
 
-    @FXML
-    protected Label divisionActiva;
-
-    @FXML
-    protected Label alturaDivision;
-
-    @FXML
-    protected Label indiceUltimaDivision;
-
-    @FXML
-    protected Label denominadorMenor;
-    @FXML
-    protected Label indicesNumeradores;
-    @FXML
-    protected Label indicesDenominadores;
-    @FXML
-    protected Label indicesDivisionCombinada;
-    @FXML
-    protected Label anchoDivision;
-    @FXML
-    protected Label anchoDivisionAnterior;
-    @FXML
-    protected Label divisionEliminada;
-    @FXML
-    protected Label movimientosDeLista;
-    @FXML
-    protected Button Btn_raiz;
-    @FXML
-    protected Button Btn_Decimales;
-    /*
-    @FXML
-    protected Button Btn_moverDer;
-    
-    @FXML
-    protected Button Btn_moverIzq;
-    
-     */
-    @FXML
-    protected Button Btn_puntosControl;
-
-    @FXML
-    protected Button Btn_Grado;
-    protected InterfazController controller;
-
-    @FXML
-    protected Button Btn_Sen;
-    @FXML
-    protected Button Btn_Cos;
-    @FXML
-    protected Button Btn_Tan;
-
-    @FXML
-    protected Button Btn_Fact;
-    
-    @FXML
-    protected Button Btn_igual;
-
-
-    double espacio_acumulado = 0;
     ArrayList<Simbolo> lista_simbolos = new ArrayList();
 
     GraphicsContext gc;
@@ -184,143 +63,63 @@ public class InterfazController implements Initializable {
     Logica l = new Logica(this);
     FuncionesGraficadoras fg = new FuncionesGraficadoras();
     FuncionesAuxiliares fa = new FuncionesAuxiliares();
-    Interfaz_panelController panelContext;
-    Operaciones op = new Operaciones();
 
     //Para los colores de los numeros y operadores
     Color colorNum = Color.GREEN;
     Color colorOp = Color.RED;
 
-    //Para el movimiento de la ventana panel
-    private double x, y = 0;
-
-    //Para el cambio de fondo
-    @FXML
-    AnchorPane fondoInterfaz;
-
-    @FXML
-    AnchorPane botonesCalc;
-    @FXML
-    AnchorPane botonesCalcOcultos;
-
-    @FXML
-    AnchorPane botonesCientificos;
-
-    @FXML
-    HBox barra;
-
-    @FXML
-    Label botonInvisible;
-    
-    @FXML
-    protected void maximizar() {
-        Stage stage = (Stage) fondoInterfaz.getScene().getWindow();
-        
-        if(stage.isMaximized() == false){
-            stage.setMaximized(true);
-            double ancho = stage.getWidth();
-            double largo = stage.getHeight();
-            Display.setWidth(ancho-50);
-            botonesCalc.setDisable(true);
-            botonesCalc.setVisible(false);
-            botonesCalcOcultos.setDisable(false);
-            botonesCalcOcultos.setVisible(true);
-            botonesCalcOcultos.setLayoutX(600);
-            botonesCalcOcultos.setLayoutY(largo-450);
-            barra.setLayoutX(ancho-90);
-            botonInvisible.setLayoutX(ancho-206);
-            botonInvisible.setLayoutY(largo-35);
-            if(Btn_Sen.isVisible()==false){
-                Escribir.setLayoutX(417);
-            }
-        }
-        else if(stage.isMaximized() == true){
-            stage.setMaximized(false);
-            double ancho = stage.getWidth();
-            Display.setWidth(ancho-50);
-            barra.setLayoutX(ancho-90);
-            botonesCalc.setDisable(false);
-            botonesCalc.setVisible(true);
-            botonesCalcOcultos.setDisable(true);
-            botonesCalcOcultos.setVisible(false);
-            Escribir.setLayoutX(417);
-        }
-    }
-
-    @FXML
-    protected void minimizar() {
-        Stage stage = (Stage) fondoInterfaz.getScene().getWindow();
-        stage.setIconified(true);
-    }
+    //X e Y iniciales
+    double pivot_x = 50;
+    double pivot_y = 250;
 
     @FXML
     protected void Boton0_presionado() {
-
         l.agregarSimbolo(gc, 0, lista_simbolos, Display);
-
     }
 
     @FXML
     protected void Boton1_presionado() {
-
         l.agregarSimbolo(gc, 1, lista_simbolos, Display);
-
     }
 
     @FXML
     protected void Boton2_presionado() {
-
         l.agregarSimbolo(gc, 2, lista_simbolos, Display);
-
     }
 
     @FXML
     protected void Boton3_presionado() {
-
         l.agregarSimbolo(gc, 3, lista_simbolos, Display);
-
     }
 
     @FXML
     protected void Boton4_presionado() {
-
         l.agregarSimbolo(gc, 4, lista_simbolos, Display);
-
     }
 
     @FXML
     protected void Boton5_presionado() {
-
         l.agregarSimbolo(gc, 5, lista_simbolos, Display);
-
     }
 
     @FXML
     protected void Boton6_presionado() {
-
         l.agregarSimbolo(gc, 6, lista_simbolos, Display);
-
     }
 
     @FXML
     protected void Boton7_presionado() {
-
         l.agregarSimbolo(gc, 7, lista_simbolos, Display);
-
     }
 
     @FXML
     protected void Boton8_presionado() {
-
         l.agregarSimbolo(gc, 8, lista_simbolos, Display);
-
     }
 
     @FXML
     protected void Boton9_presionado() {
-
         l.agregarSimbolo(gc, 9, lista_simbolos, Display);
-
     }
 
     @FXML
@@ -332,9 +131,11 @@ public class InterfazController implements Initializable {
 
     @FXML
     protected void BotonMenos_presionado() {
-        if (l.bloqueadorSignoNegativo(lista_simbolos) == 1) {
+        if (lista_simbolos.isEmpty()) {
             l.agregarSimbolo(gc, 11, lista_simbolos, Display);
-        }
+        }else if (l.contadorNegativos <2){
+            l.agregarSimbolo(gc, 11, lista_simbolos, Display);
+        }   
     }
 
     @FXML
@@ -342,24 +143,50 @@ public class InterfazController implements Initializable {
         if (l.bloqueadorOperadorMultiple(lista_simbolos) == 0) {
             l.agregarSimbolo(gc, 12, lista_simbolos, Display);
         }
+    }
 
+    @FXML
+    protected void BotonDivision_presionado() {
+        if (!lista_simbolos.isEmpty()) {
+            if (fa.conseguirUltimoSimbolo(lista_simbolos).getTipo() == 0
+                || fa.conseguirUltimoSimbolo(lista_simbolos).valor == 18) {
+                l.agregarSimbolo(gc, 13, lista_simbolos, Display);
+            }
+        }
+    }
+
+    @FXML
+    protected void Btn_Igual() {
+        fa.limpiarLista(lista_simbolos);
+        try{
+            String exp = l.listaATexto(lista_simbolos);
+            String prec = fa.precedenc(exp);
+            l.context.precedencia.setText(prec);
+        }catch(Exception e){
+            l.context.precedencia.setText("Ocurrió un problema");
+        }
+        fa.ordenCalcular(lista_simbolos, l);
     }
 
     @FXML
     protected void BotonRaiz_presionado() {
         l.agregarSimbolo(gc, 21, lista_simbolos, Display);
 
-    }    
+    }
 
-    @FXML
-    protected void BotonDivision_presionado() {
-
-        if (!lista_simbolos.isEmpty()) {
-            if (fa.conseguirUltimoSimbolo(lista_simbolos).valor == 18) {
-                l.agregarDivision();
-            }
+    @FXML 
+    protected void BotonCambiarBase_presionado() {
+        if(Btn_CambiarBase.getText().equals("Binario")){
+            Btn_CambiarBase.setText("Decimal");
+            l.cambiaDecimales(lista_simbolos,gc,Display);
+            fg.limpiarCanvas(gc, Display);
+            fg.dibujarTodosLosSimbolos(gc, lista_simbolos);
+        }else{
+            Btn_CambiarBase.setText("Binario");
+            l.cambiaBinarios(lista_simbolos,gc,Display);
+            fg.limpiarCanvas(gc, Display);
+            fg.dibujarTodosLosSimbolos(gc, lista_simbolos);
         }
-
     }
 
     @FXML
@@ -370,20 +197,12 @@ public class InterfazController implements Initializable {
     @FXML
     protected void BotonParentesisCerrado_presionado() {
         if (!l.ParentesisAbiertos.isEmpty()) {
-            l.agregarSimbolo(gc, 18, lista_simbolos, Display);
-        }
-    }
-
-    @FXML
-    protected void BtnOperador_presionado() {
-        l.agregarSimbolo(gc, 16, lista_simbolos, Display);
-    }
-
-    @FXML
-    protected void BotonDEL_presionado() {
-
-        if (lista_simbolos.size() > 0) {
-            //l.borrarUltimo(gc, lista_simbolos, pivot_x, Display);
+            if (!lista_simbolos.isEmpty()) {
+                Simbolo s = fa.conseguirUltimoSimbolo(lista_simbolos);
+                if (s.tipo == 0 || (s.tipo != 0 && (s.valor < 10 || s.valor > 13))) {
+                    l.agregarSimbolo(gc, 18, lista_simbolos, Display);
+                }
+            }
         }
     }
 
@@ -398,13 +217,10 @@ public class InterfazController implements Initializable {
 
     @FXML
     protected void BotonAC_presionado() {
-
-        if (lista_simbolos.size() > 0) {
-            l.resetEstado();
-            fg.borrarTodo(gc, Display, lista_simbolos, l.pivot_x);
-            if (l.panelAgregado == 1) {
-                l.context.panelContext.setTextArea();
-            }
+        l.resetEstado();
+        fg.borrarTodo(gc, Display, lista_simbolos, l.pivot_x);
+        if(Btn_CambiarBase.getText().equals("Binario")){
+            Btn_CambiarBase.setText("Decimal");
         }
     }
 
@@ -414,26 +230,12 @@ public class InterfazController implements Initializable {
     }
 
     @FXML
-    protected void BotonColorNumeros_presionado() {
-        colorNum = Color.valueOf(colorNumeros.getValue().toString());
-        fg.actualizarColores(gc, lista_simbolos, colorNum, colorOp, Display);
-    }
-
-    @FXML
-    protected void BotonColorOperadores_presionado() {
-        colorOp = Color.valueOf(colorOperadores.getValue().toString());
-        fg.actualizarColores(gc, lista_simbolos, colorNum, colorOp, Display);
-    }
-
-    @FXML
     protected void Slider_presionado() {
         double valor = tamanoCaracteres.getValue();
-        System.out.println(tamanoCaracteres.getValue());
         switch ((int) valor) {
             case 1:
                 l.cambiarTamano(0.35);
                 l.factor = 0.35;
-
                 break;
             case 2:
                 l.cambiarTamano(0.50);
@@ -455,143 +257,102 @@ public class InterfazController implements Initializable {
     }
 
     @FXML
+    protected void BotonMaximizar_presionado() {
+        Stage stage = (Stage) fondoInterfaz.getScene().getWindow();
+        if (stage.isMaximized()) {
+            stage.setMaximized(false);
+            Display.setWidth(550); //Display
+            Display.setHeight(250);
+            barra.setLayoutX(500);
+            botonesEstandar.setLayoutX(184);
+            botonesEstandar.setLayoutY(432);
+            Txt_Input.setLayoutX(402);
+            Txt_Input.setLayoutY(458);
+            textoSalida.setLayoutX(77); //Barra
+            textoSalida.setLayoutY(325);
+            botonesCientificos1.setLayoutX(96); //Botones cientificos
+            botonesCientificos1.setLayoutY(482); 
+            botonesCientificos2.setLayoutX(185); //Botones cientificos
+            botonesCientificos2.setLayoutY(380);
+            otrosBotones.setLayoutX(78); //Otros botones
+            otrosBotones.setLayoutY(358);
+            flechas.setLayoutX(43); //Flechas
+            flechas.setLayoutY(423);
+            nombre.setLayoutX(5); //Nombre
+            nombre.setLayoutY(5);
+            nombre.getStyleClass().clear();
+            nombre.getStyleClass().add("name");
+            nombre.setPrefSize(200, 27);
+            precedencia.setLayoutX(77); //Precedencia
+            precedencia.setLayoutY(295);
+            l.dibujarSimbolos();
+
+        } else {
+            stage.setMaximized(true);
+            stage.setMaximized(true);
+            double ancho = stage.getWidth();
+            double largo = stage.getHeight();
+            Display.setWidth(ancho-500); //Display
+            Display.setHeight(largo-50);
+            Btn_Aux.setLayoutX(ancho-25); //Fondo
+            Btn_Aux.setLayoutY(largo-25);
+            barra.setLayoutX(ancho-90); //Min,Max,Close
+            botonesEstandar.setLayoutX(ancho-350); //Botones normales
+            botonesEstandar.setLayoutY(largo-400);
+            Txt_Input.setLayoutX(ancho-250); //Escribir
+            Txt_Input.setLayoutY(largo-130);
+            textoSalida.setLayoutX(ancho-455); //Barra
+            textoSalida.setLayoutY(200);
+            botonesCientificos1.setLayoutX(ancho-160); //Botones cientificos
+            botonesCientificos1.setLayoutY(largo-398); 
+            botonesCientificos2.setLayoutX(ancho-350); //Botones cientificos
+            botonesCientificos2.setLayoutY(largo-460);
+            otrosBotones.setLayoutX(ancho-455); //Otros botones
+            otrosBotones.setLayoutY(250);
+            flechas.setLayoutX(ancho-400); //Flechas
+            flechas.setLayoutY(largo-100);
+            nombre.setLayoutX(ancho-450); //Nombre
+            nombre.setLayoutY(80);
+            nombre.getStyleClass().clear();
+            nombre.getStyleClass().add("nameGrande");
+            nombre.setPrefSize(400, 54);
+            precedencia.setLayoutX(ancho-455); //Precedencia
+            precedencia.setLayoutY(150);
+            l.dibujarSimbolos();
+        }
+    }
+
+    @FXML
     protected void BotonCientifico_presionado() {
-        Stage stage = (Stage) fondoInterfaz.getScene().getWindow();
-        double ancho = stage.getWidth();
-        if (Btn_Sen.isVisible() == true) {
-            Btn_Sen.setVisible(false);
-            Btn_Cos.setVisible(false);
-            Btn_Tan.setVisible(false);
-            Btn_Fact.setVisible(false);
-            Btn_potencia.setVisible(false);
-            Btn_Grado.setVisible(false);
-            Btn_raiz.setVisible(false);
+        if (botonesCientificos1.isVisible() == true) {
+            botonesCientificos1.setVisible(false);
+            botonesCientificos2.setVisible(false);
             Btn_Cientifico.setText("Básico");
-            botonesCalc.setLayoutX(201);
-            if(stage.isMaximized()== false){
-                Escribir.setLayoutX(417);
-                botonesCalc.setLayoutX(201);
-            }
-            
         } else {
-            Btn_Sen.setVisible(true);
-            Btn_Fact.setVisible(true);
-            Btn_potencia.setVisible(true);
-            Btn_Cos.setVisible(true);
-            Btn_Tan.setVisible(true);
-            Btn_Grado.setVisible(true);
-            Btn_raiz.setVisible(true);
+            botonesCientificos1.setVisible(true);
+            botonesCientificos2.setVisible(true);
             Btn_Cientifico.setText("Científico");
-            botonesCalc.setLayoutX(ancho-250);
-            if(stage.isMaximized()== false){
-                Escribir.setLayoutX(160);
-            }
         }
+    }
 
-    }
-    
-    @FXML
-    protected String inputTXT(){
-        String textoIngresado = Escribir.getText();
-        return textoIngresado;
-    }
-    
-    @FXML
-    protected void Boton_binarioPresionado(){
-        Btn_Decimales.setVisible(true);
-        l.cambiaBinarios(lista_simbolos,gc,Display);
-        fg.limpiarCanvas(gc, Display);
-        fg.dibujarTodosLosSimbolos(gc, lista_simbolos);
-    }
-    
-    @FXML
-    protected void Boton_DecimalPresionado(){
-        Btn_Decimales.setVisible(false);
-        l.cambiaDecimales(lista_simbolos,gc,Display);
-        fg.limpiarCanvas(gc, Display);
-        fg.dibujarTodosLosSimbolos(gc, lista_simbolos);
-    }
-    
-    @FXML
-    protected void BotonSecuencia_presionado() {
-        Stage stage = (Stage) fondoInterfaz.getScene().getWindow();
-        if (Escribir.isVisible() == true) {
-            if(Btn_Sen.isVisible() == true){
-                Escribir.setLayoutX(160);
-            }
-            Escribir.setVisible(false);
-            Btn_Secuencia.setText("Secuencia");
-            l.AgregarNumeros(inputTXT(), lista_simbolos, gc, Display);
-            Escribir.setText("");
-            
-
-        } else {
-            if(stage.isMaximized() == false){
-                if(Btn_Sen.isVisible() == true){
-                    Escribir.setLayoutX(160);
-                }
-                else{
-                    Escribir.setLayoutX(417);
-                }
-            }
-            if(stage.isMaximized() == true){
-                Escribir.setLayoutX(200);
-            }
-            Escribir.setVisible(true);
-            Btn_Secuencia.setText("Hide Secuencia");
-             
-
-        }
-
-    }
     @FXML
     protected void Cerrar() {
         Platform.exit();
     }
 
     @FXML
-    protected void BotonPotencia_presionado() {
-
-        if (!lista_simbolos.isEmpty()) {
-            if (fa.conseguirUltimoSimbolo(lista_simbolos).valor == 18) {
-                if (!l.enPotencia) {
-                    l.enPotencia = true;
-                    l.fa.alturaEnPotencia(l);
-                    l.agregarSimbolo(gc, -1, lista_simbolos, Display);
-                    alturaDivision.setVisible(true);
-
-                } else {
-                    if (l.enPotencia) {
-                        l.enPotencia = false;
-                        l.fa.alturaEnPotencia(l);
-                        alturaDivision.setVisible(false);
-                        l.pivot_x = l.pivot_x + 5;
-                    }
-
-                }
-            } else {
-                if (l.enPotencia) {
-                    l.enPotencia = false;
-                    l.fa.alturaEnPotencia(l);
-                    alturaDivision.setVisible(false);
-                    l.pivot_x = l.pivot_x + 5;
-                }
-
-            }
-        }
-
+    protected void minimizar() {
+        Stage stage = (Stage) fondoInterfaz.getScene().getWindow();
+        stage.setIconified(true);
     }
-
+    
     @FXML
     protected void BotonArriba_presionado() {
         for (int i = 0; i < lista_simbolos.size(); i++) {
             lista_simbolos.get(i).moverAbajo(1);
         }
-        fg.limpiarCanvas(gc, Display);
-        fg.dibujarTodosLosSimbolos(gc, lista_simbolos);
         l.pivot_y = l.pivot_y + 22;
-        l.dibujarPuntero();
-
+        l.dibujarSimbolos();
     }
 
     @FXML
@@ -599,11 +360,8 @@ public class InterfazController implements Initializable {
         for (int i = 0; i < lista_simbolos.size(); i++) {
             lista_simbolos.get(i).moverArriba(1);
         }
-        fg.limpiarCanvas(gc, Display);
-        fg.dibujarTodosLosSimbolos(gc, lista_simbolos);
         l.pivot_y = l.pivot_y - 22;
-        l.dibujarPuntero();
-
+        l.dibujarSimbolos();
     }
 
     @FXML
@@ -611,10 +369,9 @@ public class InterfazController implements Initializable {
         for (int i = 0; i < lista_simbolos.size(); i++) {
             lista_simbolos.get(i).moverIzquierda(1);
         }
-        fg.limpiarCanvas(gc, Display);
-        fg.dibujarTodosLosSimbolos(gc, lista_simbolos);
+
         l.pivot_x = l.pivot_x - 15;
-        l.dibujarPuntero();
+        l.dibujarSimbolos();
 
     }
 
@@ -624,36 +381,120 @@ public class InterfazController implements Initializable {
             lista_simbolos.get(i).moverDerecha(1);
 
         }
-        fg.limpiarCanvas(gc, Display);
-        fg.dibujarTodosLosSimbolos(gc, lista_simbolos);
+
         l.pivot_x = l.pivot_x + 15;
-        l.dibujarPuntero();
+        l.dibujarSimbolos();
 
     }
 
-    protected void setController(InterfazController ic) {
-        this.controller = ic;
-        this.lista_simbolos = controller.lista_simbolos;
-        fg.limpiarCanvas(gc, Display);
-        fg.dibujarTodosLosSimbolos(gc, controller.lista_simbolos);
+    @FXML
+    protected void BotonPotencia_presionado() {
+        if (!lista_simbolos.isEmpty()) {
+            if (!l.enPotencia) {
+                l.enPotencia = true;
+                l.fa.getAlturaSimbolo(l);
+                l.agregarSimbolo(gc, -1, lista_simbolos, Display);
+            }
+        }
+    }
+
+    @FXML
+    protected void BotonIngresarFormula_presionado() {
+        l.resetEstado();
+        lista_simbolos.clear();
+
+        String cadena = Txt_Input.getText();
+
+        boolean enPotencia = false;
+        int contadorPotencia = 0;
+        int aux = 0;
+
+        int valorChar;
+
+        for (int i = 0; i < cadena.length(); i++) {
+            valorChar = cadena.charAt(i);
+            if (enPotencia) {
+                if (contadorPotencia == 0 & aux != 0) {
+                    l.enPotencia = false;
+                }
+            }
+            if (valorChar >= 48 && valorChar <= 67) {
+                l.agregarSimbolo(gc, valorChar - 48, lista_simbolos, Display);
+            } else {
+                switch (cadena.charAt(i)) {
+                    case '√':
+                        BotonRaiz_presionado();
+                        break;
+                    case '^':
+                        BotonPotencia_presionado();
+                        break;
+                    case '+':
+                        BotonMas_presionado();
+                        break;
+                    case '-':
+                        BotonMenos_presionado();
+                        break;
+                    case '*':
+                        BotonMultiplicar_presionado();
+                        break;
+                    case '/':
+                        BotonDivision_presionado();
+                        break;
+                    case 's':
+                    case 'S':
+                        BotonSeno_presionado();
+                        i = i + 2;
+                        break;
+                    case 'c':
+                    case 'C':
+                        BotonCos_presionado();
+                        i = i + 2;
+                        break;
+                    case 't':
+                    case 'T':
+                        BotonTan_presionado();
+                        i = i + 2;
+                        break;
+                    case '(':
+                        if (enPotencia) {
+                            contadorPotencia++;
+                            aux++;
+                        }
+                        l.agregarSimbolo(gc, 17, lista_simbolos, Display);
+                        break;
+                    case ')':
+                        if (enPotencia) {
+                            contadorPotencia--;
+                            l.enPotencia = true;
+                            enPotencia = true;
+                            fa.getAlturaSimbolo(l);
+                        }
+                        BotonParentesisCerrado_presionado();
+                        break;
+                    case '!':
+                        BotonFact_presionado();
+                        break;
+                    case '°':
+                        BotonGrado_presionado();
+                        break;
+                }
+            }
+        }
     }
 
     @FXML
     protected void BotonSeno_presionado() {
         l.agregarSimbolo(gc, 14, lista_simbolos, Display);
-        l.agregarSimbolo(gc, 17, lista_simbolos, Display);
     }
 
     @FXML
     protected void BotonCos_presionado() {
         l.agregarSimbolo(gc, 15, lista_simbolos, Display);
-        l.agregarSimbolo(gc, 17, lista_simbolos, Display);
     }
 
     @FXML
     protected void BotonTan_presionado() {
         l.agregarSimbolo(gc, 16, lista_simbolos, Display);
-        l.agregarSimbolo(gc, 17, lista_simbolos, Display);
     }
 
     @FXML
@@ -737,21 +578,9 @@ public class InterfazController implements Initializable {
         colorOp = Color.web("#E56B20");
         fg.actualizarColores(gc, lista_simbolos, colorNum, colorOp, Display);
     }
-    
-    @FXML
-    protected void BotonIgual_presionado() {  
-        lista_simbolos = l.igual(lista_simbolos, gc, Display);
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         gc = Display.getGraphicsContext2D();
-        /*
-        gc.beginPath();
-        gc.moveTo(80,80);
-        gc.bezierCurveTo(150, 20, 150, 150, 75, 150);
-        gc.closePath();
-         */
     }
-
 }

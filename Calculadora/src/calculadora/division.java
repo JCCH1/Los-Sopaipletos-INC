@@ -5,36 +5,55 @@ import java.util.ArrayList;
 public class division {
 
     ArrayList<Simbolo> Numeradores = new ArrayList();
-    FuncionesAuxiliares fa = new FuncionesAuxiliares();
     ArrayList<Double> listaMovimientosHaciaDerecha = new ArrayList();
+
+
+    FuncionesAuxiliares fa = new FuncionesAuxiliares();
+
     double anchoAnterior = 0;
     double movimientosDerechaAnterior = 0;
-    double movimientosDerecha =0;
+    double movimientosDerecha = 0;
     double diferenciaLineaDivision = 0;
+    double coordNumerador;
+
+    Simbolo hayParentesis;
+    Simbolo movimientoLinea;
+    
+    boolean lineaDivision = true;
+
 
     protected void nuevaDivision(Logica l) {
         movimientosDerechaAnterior = movimientosDerecha;
         movimientosDerecha = 0;
         conseguirNumeradores(l);
-        if(l.enPotencia){
+        if (l.enPotencia) {
             moverNumeradoresHaciaArriba(1);
             fa.moverPivotADenominador(l);
-            //fa.moverPivotDerechaPotencia(l);
-            //fa.moverPivotDerechaPotencia(l);
-        }else{
+        } else {
             moverNumeradoresHaciaArriba(2);
             fa.moverPivotADenominador(l);
-        }     
+        }
     }
-    
-    protected void crearLineaDivision(Logica l,Simbolo s){
-        s.forma[0] = l.context.lista_simbolos.get(l.context.lista_simbolos.size()-1).enlace.forma[8];
-        s.forma[2] = l.context.lista_simbolos.get(l.context.lista_simbolos.size()-1).forma[8];
+
+    protected void crearLineaDivision(Logica l, Simbolo s) {
+        if (!l.ParentesisAbiertos.isEmpty()) {
+            if (l.enPotencia) {
+                s.forma[0] = l.pivot_x - 5;
+            } else {
+                s.forma[0] = l.pivot_x;
+            }
+
+        } else {
+            s.forma[0] = l.context.lista_simbolos.get(0).Xpos - l.espacioEntreSimbolos;
+        }
+
+        s.forma[2] = coordNumerador;
         s.moverArriba(1);
+        movimientoLinea = s;
     }
+
 
     protected void moverNumeradoresHaciaArriba(double pos) {
-
         for (int i = 0; i < Numeradores.size(); i++) {
             Numeradores.get(i).moverArriba(pos);
         }
@@ -47,36 +66,44 @@ public class division {
     protected void conseguirNumeradores(Logica l) {
         int contador = 0;
         int movimientosDer = 0;
-        
-        if(!l.enDivision){
-            l.alturaAntesDeDivision = l.context.lista_simbolos.get(l.context.lista_simbolos.size()-1);
-        }
-        
+
+        coordNumerador = l.context.lista_simbolos.get(l.context.lista_simbolos.size() - 1).Xpos;
 
         for (int i = l.context.lista_simbolos.size() - 1; i >= 0; i--) {
             if (l.context.lista_simbolos.get(i).valor == 18) {
                 contador++;
-
             } else if (l.context.lista_simbolos.get(i).valor == 17) {
                 contador--;
             }
-            if(!Numeradores.contains(l.context.lista_simbolos.get(i))){
-                Numeradores.add(l.context.lista_simbolos.get(i));
-                movimientosDer++;
-            }
-            
-            if (contador == 0) {
+            if (contador == -1) {
+                hayParentesis = l.context.lista_simbolos.get(i);
                 break;
+            } else {
+                if (!Numeradores.contains(l.context.lista_simbolos.get(i))) {
+                    Numeradores.add(l.context.lista_simbolos.get(i));
+                    movimientosDer++;
+                }
             }
-            
         }
-        
         movimientosDerecha = movimientosDer;
-        
-
-         
-        System.out.println("MovDer: "+movimientosDerecha);
-
     }
 
+    protected void centrarNumeradores(Logica l) {
+        if (l.pivot_x > coordNumerador && l.context.lista_simbolos.get(l.context.lista_simbolos.size() - 1).valor != 18) {
+            if (l.enDivision) {
+                for (int i = 0; i < Numeradores.size(); i++) {
+                    Numeradores.get(i).moverDerecha(0.5);
+                }
+                if (lineaDivision) {
+                    if (!l.ParentesisAbiertos.isEmpty() && hayParentesis != null) {
+                        movimientoLinea.setDimensionLineaDivision(
+                            hayParentesis.Xpos, l.pivot_x);
+                    } else {
+                        movimientoLinea.setDimensionLineaDivision(
+                            l.context.lista_simbolos.get(0).Xpos - l.espacioEntreSimbolos, l.pivot_x);
+                    }
+                }
+            }
+        }
+    }
 }

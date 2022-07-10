@@ -18,6 +18,7 @@ public class Calculadora extends Application {
     public void start(Stage stage) throws IOException {
         AnchorPane root = FXMLLoader.load(getClass().getResource("Interfaz_basica.fxml"));
 
+        //Para definir la barra de la ventana en transparente
         Scene scene = new Scene(root);
         stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
@@ -27,12 +28,14 @@ public class Calculadora extends Application {
             posMousex = mouseEvent.getSceneX();
             posMousey = mouseEvent.getSceneY();
         });
-
+        
+        //Para mover la ventana
         root.setOnMouseDragged(mouseEvent -> {
             stage.setX(mouseEvent.getScreenX() - posMousex);
             stage.setY(mouseEvent.getScreenY() - posMousey);
         });
-        
+
+        //Para definir el logo de la barra
         stage.setScene(scene);
         stage.getIcons().add(new Image("calculadora/img/Logo.png"));
         stage.show();
@@ -42,3 +45,16 @@ public class Calculadora extends Application {
         launch(args);
     }
 }
+
+/*Casos de prueba:
+ * 1) 2*(2/5))/(-1*(7/2)^2)/(5+(6*-3)
+ * Resultado: 0.005024
+ * 
+ * 2)(6*((6*((8*4)/(-6/tan(100°))))/(cos(65°))))/(-1)
+ * 
+ * Resultado: -2576.524036
+ * 
+ * 3) (3*((2/5)+6)/((4^(cos(30°)+6))^(4*(6/3)))^(18))
+ * 
+ * Resultado: 1.051906
+*/

@@ -22,7 +22,6 @@ public class FuncionesGraficadoras {
     }
 
     protected void limpiarCanvas(GraphicsContext gc, Canvas Display) {
-
         gc.clearRect(0, 0, Display.getWidth(), Display.getHeight());
     }
     
@@ -31,12 +30,11 @@ public class FuncionesGraficadoras {
             Simbolo s = lista_simbolos.get(i);
             if(s.tipo == 0){
                 s.setColor(numeros);
-            }else{
+            }else if(s.tipo > 0){
                 s.setColor(Operadores);
             }
         }
         limpiarCanvas(gc, Display);
         dibujarTodosLosSimbolos(gc, lista_simbolos);
     }
-
 }
