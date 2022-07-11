@@ -1,30 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package calculadora;
 
-/**
- *
- * @author oknmi
- */
 public class CoordenadasSimbolos {
-
+    //Numeros normales
     double[] cero(double x, double y) {
         double[] cero = {x - 10, y - 40, x, y - 40,
             x, y - 40, x, y - 10,
             x, y - 10, x - 10, y - 10,
             x - 10, y - 10, x - 10, y - 40
-        };
-        return cero;
-    }
-
-    double[] ceroPot(double x, double y) {
-        double[] cero = {x - 10, y - 40, x - 5, y - 40,
-            x - 5, y - 40, x - 5, y - 25,
-            x - 5, y - 25, x - 10, y - 25,
-            x - 10, y - 25, x - 10, y - 40
         };
         return cero;
     }
@@ -35,23 +17,13 @@ public class CoordenadasSimbolos {
             x - 10, y - 10, x, y - 10};
         return uno;
     }
-
-    double[] unoPot(double x, double y) {
-        double[] uno = {x - 10, y - 32.5, x - 7.5, y - 40, x - 7.5, y - 40, x - 7.5, y - 25};
-        return uno;
-    }
-
+    
     double[] dos(double x, double y) {
         double[] dos = {x - 10, y - 40, x, y - 40,
             x, y - 40, x, y - 25,
             x, y - 25, x - 10, y - 25,
             x - 10, y - 25, x - 10, y - 10,
             x - 10, y - 10, x, y - 10};
-        return dos;
-    }
-
-    double[] dosPot(double x, double y) {
-        double[] dos = {x - 10, y - 40, x - 5, y - 40, x - 5, y - 40, x - 5, y - 32.5, x - 5, y - 32.5, x - 10, y - 32.5, x - 10, y - 32.5, x - 10, y - 25, x - 10, y - 25, x - 5, y - 25};
         return dos;
     }
 
@@ -64,20 +36,10 @@ public class CoordenadasSimbolos {
         return tres;
     }
 
-    double[] tresPot(double x, double y) {
-        double[] tres = {x - 10, y - 40, x - 5, y - 40, x - 5, y - 40, x - 5, y - 25, x - 5, y - 25, x - 10, y - 25, x - 5, y - 32.5, x - 10, y - 32.5};
-        return tres;
-    }
-
     double[] cuatro(double x, double y) {
         double[] cuatro = {x - 10, y - 40, x - 10, y - 25,
             x - 10, y - 25, x, y - 25,
             x, y - 40, x, y - 10};
-        return cuatro;
-    }
-
-    double[] cuatroPot(double x, double y) {
-        double[] cuatro = {x - 10, y - 40, x - 10, y - 32.5, x - 10, y - 32.5, x - 5, y - 32.5, x - 5, y - 40, x - 5, y - 25};
         return cuatro;
     }
 
@@ -91,12 +53,6 @@ public class CoordenadasSimbolos {
         return cinco;
     }
 
-    double[] cincoPot(double x, double y) {
-        double[] cinco = {x - 5, y - 40, x - 10, y - 40, x - 10, y - 40, x - 10, y - 32.5, x - 10, y - 32.5, x - 5, y - 32.5, x - 5, y - 32.5, x - 5, y - 25, x - 5, y - 25, x - 10, y - 25};
-
-        return cinco;
-    }
-
     double[] seis(double x, double y) {
         double[] seis = {x - 10, y - 40, x, y - 40,
             x - 10, y - 40, x - 10, y - 10,
@@ -105,20 +61,10 @@ public class CoordenadasSimbolos {
             x, y - 25, x - 10, y - 25};
         return seis;
     }
-
-    double[] seisPot(double x, double y) {
-        double[] seis = {x - 5, y - 40, x - 10, y - 40, x - 10, y - 40, x - 10, y - 25, x - 10, y - 25, x - 5, y - 25, x - 5, y - 25, x - 5, y - 32.5, x - 5, y - 32.5, x - 10, y - 32.5};
-        return seis;
-    }
-
+    
     double[] siete(double x, double y) {
         double[] siete = {x - 10, y - 40, x, y - 40,
             x, y - 40, x, y - 10};
-        return siete;
-    }
-
-    double[] sietePot(double x, double y) {
-        double[] siete = {x - 10, y - 40, x - 5, y - 40, x - 5, y - 40, x - 5, y - 25};
         return siete;
     }
 
@@ -131,11 +77,6 @@ public class CoordenadasSimbolos {
         return ocho;
     }
 
-    double[] ochoPot(double x, double y) {
-        double[] ocho = {x - 10, y - 40, x - 5, y - 40, x - 5, y - 40, x - 5, y - 25, x - 5, y - 25, x - 10, y - 25, x - 5, y - 32.5, x - 10, y - 32.5, x - 10, y - 40, x - 10, y - 25};
-        return ocho;
-    }
-
     double[] nueve(double x, double y) {
         double[] nueve = {x - 10, y - 40, x, y - 40,
             x - 10, y - 40, x - 10, y - 25,
@@ -145,20 +86,66 @@ public class CoordenadasSimbolos {
         return nueve;
     }
 
+    //Numeros potencias
+    double[] ceroPot(double x, double y) {
+        double[] cero = {x - 10, y - 40, x - 5, y - 40,
+            x - 5, y - 40, x - 5, y - 25,
+            x - 5, y - 25, x - 10, y - 25,
+            x - 10, y - 25, x - 10, y - 40
+        };
+        return cero;
+    }
+
+    double[] unoPot(double x, double y) {
+        double[] uno = {x - 10, y - 32.5, x - 7.5, y - 40, x - 7.5, y - 40, x - 7.5, y - 25};
+        return uno;
+    }
+
+    double[] dosPot(double x, double y) {
+        double[] dos = {x - 10, y - 40, x - 5, y - 40, x - 5, y - 40, x - 5, y - 32.5, x - 5, y - 32.5, x - 10, y - 32.5, x - 10, y - 32.5, x - 10, y - 25, x - 10, y - 25, x - 5, y - 25};
+        return dos;
+    }
+
+    double[] tresPot(double x, double y) {
+        double[] tres = {x - 10, y - 40, x - 5, y - 40, x - 5, y - 40, x - 5, y - 25, x - 5, y - 25, x - 10, y - 25, x - 5, y - 32.5, x - 10, y - 32.5};
+        return tres;
+    }
+
+    double[] cuatroPot(double x, double y) {
+        double[] cuatro = {x - 10, y - 40, x - 10, y - 32.5, x - 10, y - 32.5, x - 5, y - 32.5, x - 5, y - 40, x - 5, y - 25};
+        return cuatro;
+    }
+
+    double[] cincoPot(double x, double y) {
+        double[] cinco = {x - 5, y - 40, x - 10, y - 40, x - 10, y - 40, x - 10, y - 32.5, x - 10, y - 32.5, x - 5, y - 32.5, x - 5, y - 32.5, x - 5, y - 25, x - 5, y - 25, x - 10, y - 25};
+
+        return cinco;
+    }
+
+    double[] seisPot(double x, double y) {
+        double[] seis = {x - 5, y - 40, x - 10, y - 40, x - 10, y - 40, x - 10, y - 25, x - 10, y - 25, x - 5, y - 25, x - 5, y - 25, x - 5, y - 32.5, x - 5, y - 32.5, x - 10, y - 32.5};
+        return seis;
+    }
+
+    double[] sietePot(double x, double y) {
+        double[] siete = {x - 10, y - 40, x - 5, y - 40, x - 5, y - 40, x - 5, y - 25};
+        return siete;
+    }
+
+    double[] ochoPot(double x, double y) {
+        double[] ocho = {x - 10, y - 40, x - 5, y - 40, x - 5, y - 40, x - 5, y - 25, x - 5, y - 25, x - 10, y - 25, x - 5, y - 32.5, x - 10, y - 32.5, x - 10, y - 40, x - 10, y - 25};
+        return ocho;
+    }
+
     double[] nuevePot(double x, double y) {
         double[] nueve = {x - 5, y - 32.5, x - 10, y - 32.5, x - 10, y - 32.5, x - 10, y - 40, x - 10, y - 40, x - 5, y - 40, x - 5, y - 40, x - 5, y - 25};
         return nueve;
     }
 
+    //Simbolos normales
     double[] mas(double x, double y) {
         double[] mas = {x - 5, y - 32.5, x - 5, y - 17.5,
             x - 10, y - 25, x, y - 25};
-        return mas;
-    }
-
-    double[] masPot(double x, double y) {
-        double[] mas = {x - 7.5, y - 36.25, x - 7.5, y - 28.75,
-            x - 10, y - 32.5, x - 5, y - 32.5};
         return mas;
     }
 
@@ -166,22 +153,10 @@ public class CoordenadasSimbolos {
         double[] menos = {x - 10, y - 25, x, y - 25};
         return menos;
     }
-
-    double[] menosPot(double x, double y) {
-        double[] menos = {x - 10, y - 32.5, x - 5, y - 32.5};
-        return menos;
-    }
-
+    
     double[] multiplicar(double x, double y) {
         double[] multiplicar = {x - 10, y - 32.5, x, y - 17.5,
             x - 10, y - 17.5, x, y - 32.5
-        };
-        return multiplicar;
-    }
-
-    double[] multiplicarPot(double x, double y) {
-        double[] multiplicar = {x - 10, y - 36.25, x - 5, y - 28.75,
-            x - 5, y - 36.25, x - 10, y - 28.75
         };
         return multiplicar;
     }
@@ -200,25 +175,12 @@ public class CoordenadasSimbolos {
         return factorial;
     }
     
-    double[] factorialPot(double x, double y) {
-        double[] factorial = {x - 7.5, y - 40, x - 7.4, y - 28.75,
-            x - 7.5, y - 25, x - 7.5, y - 25,
-            x - 7.5, y - 25, x - 7.5, y - 25,
-            x - 7.5, y - 25, x - 7.5, y - 25};
-        return factorial;
-    }
-
     double[] s(double x, double y) {
         double[] s = {x, y - 35, x, y - 40, x, y - 40, x - 10, y - 40,
             x - 10, y - 40, x - 10, y - 30, x - 10, y - 30, x, y - 30,
             x, y - 30, x, y - 10, x, y - 10, x - 10, y - 10,
             x - 10, y - 10, x - 10, y - 15};
         return s;
-    }
-
-    double[] sPot(double x, double y) {
-        double[] s_p = {x - 5, y - 40, x - 10, y - 40, x - 10, y - 40, x - 10, y - 32.5, x - 10, y - 32.5, x - 5, y - 32.5, x - 5, y - 32.5, x - 5, y - 25, x - 5, y - 25, x - 10, y - 25};
-        return s_p;
     }
 
     double[] i(double x, double y) {
@@ -228,25 +190,11 @@ public class CoordenadasSimbolos {
         return i;
     }
 
-    double[] iPot(double x, double y) {
-        double[] i_p
-            = {x - 7.5, y - 40, x - 7.5, y - 40,
-                x - 7.5, y - 36, x - 7.5, y - 25};
-        return i_p;
-    }
-
     double[] n(double x, double y) {
         double[] n = {x - 10, y - 10, x - 10, y - 40,
             x - 10, y - 40, x, y - 10, x, y - 10,
             x, y - 40};
         return n;
-    }
-
-    double[] nPot(double x, double y) {
-        double[] n_p = {x-10,y-25,x-10,y-40,
-                     x-10,y-40,x-5,y-25,
-                     x-5,y-25, x-5,y-40};
-        return n_p;
     }
 
     double[] c(double x, double y) {
@@ -258,14 +206,6 @@ public class CoordenadasSimbolos {
             x - 5, y - 10, x, y - 10,
             x, y - 10, x, y - 15};
         return c;
-    }
-
-    double[] cPot(double x, double y) {
-        double[] c_p = {x - 6, y - 40, x-10, y - 40,
-            x-10, y - 40, x - 10, y - 25,
-            x - 10, y - 25, x - 6, y - 25
-        };
-        return c_p;
     }
 
     double[] o(double x, double y) {
@@ -280,25 +220,10 @@ public class CoordenadasSimbolos {
         return o;
     }
 
-    double[] oPot(double x, double y) {
-        double[] o_p = {x - 10, y - 40, x-10, y - 25,
-            x-10, y - 25, x-5, y - 25,
-            x-5, y - 25, x - 5, y - 40,
-            x - 5, y - 40, x - 10, y - 40
-        };
-        return o_p;
-    }
-
     double[] t(double x, double y) {
         double[] t = {x - 5, y - 10, x - 5, y - 40,
             x - 5, y - 40, x, y - 40, x, y - 40, x - 10, y - 40};
         return t;
-    }
-
-    double[] tPot(double x, double y) {
-        double[] t_p = {x-5,y-40,x-5,y-25,
-                         x-8,y-40,x-2,y-40};
-        return t_p;
     }
 
     double[] a(double x, double y) {
@@ -312,18 +237,6 @@ public class CoordenadasSimbolos {
         return a;
     }
 
-    double[] aPot(double x, double y) {
-        double[] a_p = {x-10,y-25,x-10,y-32.5,
-                        x-10,y-32.5,x-8.75,y-40,
-                        x-8.75,y-40,x-6.25,y-40,
-                        x-6.25,y-40,x-5,y-32.5,
-                        x-5,y-32.5,x-5,y-25,
-                        x-5,y-25,x-5,y-32.5,
-                        x-5,y-32.5,x-10,y-32.
-        };
-        return a_p;
-    }
-
     double[] pAbierto(double x, double y) {
         double[] pAbierto = {x - 3, y - 40,
             x - 7, y - 32.5,
@@ -331,17 +244,6 @@ public class CoordenadasSimbolos {
             x - 7, y - 17.5,
             x - 7, y - 17.5,
             x - 3, y - 10
-        };
-        return pAbierto;
-    }
-
-    double[] pAbiertoPot(double x, double y) {
-        double[] pAbierto = {x - 7.5, y - 40,
-            x - 10, y - 36.5,
-            x - 10, y - 36.5,
-            x - 10, y - 28.75,
-            x - 10, y - 28.75,
-            x - 7.5, y - 25
         };
         return pAbierto;
     }
@@ -357,6 +259,120 @@ public class CoordenadasSimbolos {
         return pCerrado;
     }
 
+    double[] grado(double x, double y) {
+        double[] grado = {x - 10, y - 40, x, y - 40,
+            x, y - 40, x, y - 25,
+            x, y - 25, x - 10, y - 25,
+            x - 10, y - 25, x - 10, y - 40
+        };
+
+        return grado;
+    }
+
+    double[] raiz(double x, double y) {
+        double[] raiz = {
+            x - 10, y - 40, x, y - 10, x, y - 10,
+            x, y - 40};
+        return raiz;
+    }
+
+    double[] punto(double x, double y) {
+        double[] punto = {x - 5, y - 10, x - 5, y - 10};
+        return punto;
+    }
+
+    double[] masPot(double x, double y) {
+        double[] mas = {x - 7.5, y - 36.25, x - 7.5, y - 28.75,
+            x - 10, y - 32.5, x - 5, y - 32.5};
+        return mas;
+    }
+
+    double[] menosPot(double x, double y) {
+        double[] menos = {x - 10, y - 32.5, x - 5, y - 32.5};
+        return menos;
+    }
+
+    //Simbolos potencias
+    double[] multiplicarPot(double x, double y) {
+        double[] multiplicar = {x - 10, y - 36.25, x - 5, y - 28.75,
+            x - 5, y - 36.25, x - 10, y - 28.75
+        };
+        return multiplicar;
+    }
+
+    double[] factorialPot(double x, double y) {
+        double[] factorial = {x - 7.5, y - 40, x - 7.4, y - 28.75,
+            x - 7.5, y - 25, x - 7.5, y - 25,
+            x - 7.5, y - 25, x - 7.5, y - 25,
+            x - 7.5, y - 25, x - 7.5, y - 25};
+        return factorial;
+    }
+
+    double[] sPot(double x, double y) {
+        double[] s_p = {x - 5, y - 40, x - 10, y - 40, x - 10, y - 40, x - 10, y - 32.5, x - 10, y - 32.5, x - 5, y - 32.5, x - 5, y - 32.5, x - 5, y - 25, x - 5, y - 25, x - 10, y - 25};
+        return s_p;
+    }
+
+    double[] iPot(double x, double y) {
+        double[] i_p
+                = {x - 7.5, y - 40, x - 7.5, y - 40,
+                    x - 7.5, y - 36, x - 7.5, y - 25};
+        return i_p;
+    }
+
+    double[] nPot(double x, double y) {
+        double[] n_p = {x - 10, y - 25, x - 10, y - 40,
+            x - 10, y - 40, x - 5, y - 25,
+            x - 5, y - 25, x - 5, y - 40};
+        return n_p;
+    }
+
+    double[] cPot(double x, double y) {
+        double[] c_p = {x - 6, y - 40, x - 10, y - 40,
+            x - 10, y - 40, x - 10, y - 25,
+            x - 10, y - 25, x - 6, y - 25
+        };
+        return c_p;
+    }
+
+    double[] oPot(double x, double y) {
+        double[] o_p = {x - 10, y - 40, x - 10, y - 25,
+            x - 10, y - 25, x - 5, y - 25,
+            x - 5, y - 25, x - 5, y - 40,
+            x - 5, y - 40, x - 10, y - 40
+        };
+        return o_p;
+    }
+
+    double[] tPot(double x, double y) {
+        double[] t_p = {x - 5, y - 40, x - 5, y - 25,
+            x - 8, y - 40, x - 2, y - 40};
+        return t_p;
+    }
+
+    double[] aPot(double x, double y) {
+        double[] a_p = {x - 10, y - 25, x - 10, y - 32.5,
+            x - 10, y - 32.5, x - 8.75, y - 40,
+            x - 8.75, y - 40, x - 6.25, y - 40,
+            x - 6.25, y - 40, x - 5, y - 32.5,
+            x - 5, y - 32.5, x - 5, y - 25,
+            x - 5, y - 25, x - 5, y - 32.5,
+            x - 5, y - 32.5, x - 10, y - 32.
+        };
+        return a_p;
+    }
+
+    double[] pAbiertoPot(double x, double y) {
+        double[] pAbierto = {x - 7.5, y - 40,
+            x - 10, y - 36.5,
+            x - 10, y - 36.5,
+            x - 10, y - 28.75,
+            x - 10, y - 28.75,
+            x - 7.5, y - 25
+        };
+        return pAbierto;
+    }
+
     double[] pCerradoPot(double x, double y) {
         double[] pCerrado = {x - 7.5, y - 40,
             x - 5, y - 36.5,
@@ -368,16 +384,6 @@ public class CoordenadasSimbolos {
         return pCerrado;
     }
 
-    double[] grado(double x, double y) {
-        double[] grado = {x - 10, y - 40, x, y - 40,
-            x, y - 40, x, y - 25,
-            x, y - 25, x - 10, y - 25,
-            x - 10, y - 25, x - 10, y - 40
-        };
-
-        return grado;
-    }
-
     double[] gradoPot(double x, double y) {
         double[] grado = {x - 10, y - 40, x - 5, y - 40,
             x - 5, y - 40, x - 5, y - 32.5,
@@ -386,6 +392,17 @@ public class CoordenadasSimbolos {
         };
 
         return grado;
+    }  
+    
+    double[] raizPot(double x, double y) {
+        double[] raizPot = {x-10,y-40,x-5,y-25,
+                     x-5,y-25, x-5,y-40
+        };
+        return raizPot;
     }
 
+    double[] puntoPot(double x, double y) {
+        double[] punto = {x - 7.5, y - 25, x - 7.5, y - 25};
+        return punto;
+    }
 }
