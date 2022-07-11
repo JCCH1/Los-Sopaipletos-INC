@@ -87,7 +87,6 @@ public class Logica {
                 s.setValor(-1);
                 s.setColor(Color.rgb(0, 0, 0, 0));
                 s.valorPrecedencia = 9; //Mayor precedencia
-                s.asociatividad = 1;
                 forma = cs.ceroPot(pivot_x, pivot_y);
                 s.setForma(forma);
                 pivot_x = pivot_x - 10; //Para que el siguiente simbolo este mas cerca del ultimo agregado.
@@ -364,7 +363,6 @@ public class Logica {
                 }
                 s.setValor(19);
                 s.valorPrecedencia = 2;
-                s.asociatividad = 1;
                 s.setTipo(2);
                 s.setColor(context.colorOp);
                 s.setForma(forma);
@@ -377,7 +375,6 @@ public class Logica {
                     forma = cs.grado(pivot_x, pivot_y);
                 }
                 s.valorPrecedencia = 3;
-                s.asociatividad = 1;
                 s.setValor(20);
                 s.setTipo(2);
                 s.setColor(context.colorOp);

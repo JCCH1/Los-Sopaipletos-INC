@@ -14,11 +14,9 @@ public class Simbolo {
     Color color = Color.GREEN;
     int tipo; //0 = numero, 1= operador, 2 = operador especial
     int valor;
-    int asociatividad = 0; // 0 left-right; 1 right-left
     double resultado;
     int valorPrecedencia = 0;
     int enDivision = 0;
-    int longitudDivision = 0;
     int puntosControl = 0;
     boolean parentesisDimensionado = false;
     boolean bloqueParentesis = false;

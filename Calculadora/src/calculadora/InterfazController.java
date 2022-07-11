@@ -26,15 +26,17 @@ public class InterfazController implements Initializable {
     @FXML
     protected Button Btn_CambiarBase;
     @FXML
+    protected Button Btn_Aux;
+    @FXML
     protected TextField textoSalida;
     @FXML
     protected TextField Txt_Input;
     @FXML
+    protected TextField precedencia;
+    @FXML
     protected TextArea textArea;
     @FXML
     protected Slider tamanoCaracteres;
-    @FXML
-    protected Button Btn_Aux;
     @FXML
     protected HBox barra;
     @FXML
@@ -51,8 +53,6 @@ public class InterfazController implements Initializable {
     protected AnchorPane padreCanvas;
     @FXML
     protected AnchorPane nombre;
-    @FXML
-    protected TextField precedencia;
     @FXML
     AnchorPane fondoInterfaz;
 
